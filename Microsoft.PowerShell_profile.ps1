@@ -16,6 +16,9 @@ Import-Module PSReadLine
 # Load posh-git example profile
 . 'C:\Users\mike\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1'
 
+# https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
+. 'C:\Users\mike\powershell\Get-NetworkStatistics.ps1'
+
 function edit-powershell-profile {
   subl $profile
 }
@@ -48,12 +51,28 @@ function stree {
   & "${env:ProgramFiles(x86)}\Atlassian\SourceTree\SourceTree.exe"
 }
 
+function open($file) {
+  ii $file
+}
+
+# http://stackoverflow.com/questions/39148304/fuser-equivalent-in-powershell/39148540#39148540
+function fuser($relativeFile){
+  $file = Resolve-Path $relativeFile
+  foreach ( $Process in (Get-Process)) {
+    foreach ( $Module in $Process.Modules) {
+      if ( $Module.FileName -like "$file*" ) {
+        $Process | select id, path
+      }
+    }
+  }
+}
+
 #######################################################
 # Useful shell aliases
 #######################################################
 
 function findfile($name) {
-  ls -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach-object {
+  ls -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach {
     $place_path = $_.directory
     echo "${place_path}\${_}"
   }
@@ -103,6 +122,53 @@ function sudo {
   [System.Diagnostics.Process]::Start($psi) >> $null
 }
 
+# https://gist.github.com/aroben/5542538
+function pstree {
+  $ProcessesById = @{}
+  foreach ($Process in (Get-WMIObject -Class Win32_Process)) {
+    $ProcessesById[$Process.ProcessId] = $Process
+  }
+
+  $ProcessesWithoutParents = @()
+  $ProcessesByParent = @{}
+  foreach ($Pair in $ProcessesById.GetEnumerator()) {
+    $Process = $Pair.Value
+
+    if (($Process.ParentProcessId -eq 0) -or !$ProcessesById.ContainsKey($Process.ParentProcessId)) {
+      $ProcessesWithoutParents += $Process
+      continue
+    }
+
+    if (!$ProcessesByParent.ContainsKey($Process.ParentProcessId)) {
+      $ProcessesByParent[$Process.ParentProcessId] = @()
+    }
+    $Siblings = $ProcessesByParent[$Process.ParentProcessId]
+    $Siblings += $Process
+    $ProcessesByParent[$Process.ParentProcessId] = $Siblings
+  }
+
+  function Show-ProcessTree([UInt32]$ProcessId, $IndentLevel) {
+    $Process = $ProcessesById[$ProcessId]
+    $Indent = " " * $IndentLevel
+    if ($Process.CommandLine) {
+      $Description = $Process.CommandLine
+    } else {
+      $Description = $Process.Caption
+    }
+
+    Write-Output ("{0,6}{1} {2}" -f $Process.ProcessId, $Indent, $Description)
+    foreach ($Child in ($ProcessesByParent[$ProcessId] | Sort-Object CreationDate)) {
+      Show-ProcessTree $Child.ProcessId ($IndentLevel + 4)
+    }
+  }
+
+  Write-Output ("{0,6} {1}" -f "PID", "Command Line")
+  Write-Output ("{0,6} {1}" -f "---", "------------")
+
+  foreach ($Process in ($ProcessesWithoutParents | Sort-Object CreationDate)) {
+    Show-ProcessTree $Process.ProcessId 0
+  }
+}
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
 
