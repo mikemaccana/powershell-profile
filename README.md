@@ -2,8 +2,9 @@
 
 Aliases for Unix commands, and other useful bits and pieces.
 
-## General useful Windows-specific commands
+The details below are minimal, but the names of most commands make things fairly obvious.
 
+## Useful Windows-specific commands
 
 `edit-powershell-profile`
 
@@ -19,12 +20,13 @@ Aliases for Unix commands, and other useful bits and pieces.
 
 `prompt` - neat Unix-like prompt
 
-`gg` - git grep
-
 `open` - open a file with whatever Windows uses
 
-## Dev Tools
+`findfile`
 
+`get-path`
+
+## Dev Tools
 
 `subl` - Sublime Text
 
@@ -32,16 +34,11 @@ Aliases for Unix commands, and other useful bits and pieces.
 
 `stree` - SourceTree
 
-## Useful shell aliases
-
-
-`findfile`
-
-`get-path`
-
 `git-show-ignored`
 
 `git-show-untracked`
+
+`gg` - git grep
 
 ## Unixlike commands
 
