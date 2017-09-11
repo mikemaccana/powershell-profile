@@ -13,6 +13,7 @@ Add-PathVariable "${env:ProgramFiles}\7-Zip"
 Add-PathVariable "${env:ProgramFiles}\wtrace"
 Add-PathVariable "C:\OpenSSL-Win32\bin"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
+Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
 # Add relative node_modules\.bin to PATH - this keeps updating as we `cd`
 Add-PathVariable '.\node_modules\.bin'
