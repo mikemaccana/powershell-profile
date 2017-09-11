@@ -13,20 +13,18 @@ Add-PathVariable "${env:ProgramFiles}\7-Zip"
 Add-PathVariable "${env:ProgramFiles}\wtrace"
 Add-PathVariable "C:\OpenSSL-Win32\bin"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
+
+# Add relative node_modules\.bin to PATH - this keeps updating as we `cd`
+Add-PathVariable '.\node_modules\.bin'
+
+# To use git supplied by SourceTree instead of the 'git for Windows' version
 # Add-PathVariable "${env:UserProfile}\AppData\Local\Atlassian\SourceTree\git_local\bin"
 
-
-#
-#
 # $env:NODE_PATH = "C:\Users\mike\AppData\Roaming\npm"
 
 # For 'Remove-ItemSafely' - ie, trashing files from the command line
 # Install-Module -Name Recycle
 Set-Alias trash Remove-ItemSafely
-
-function edit-powershell-profile {
-	subl $profile
-}
 
 # For working less (except in ISE)
 # Install-Package Pscx
@@ -35,27 +33,27 @@ function edit-powershell-profile {
 # Install-Package PSReadLine
 Import-Module PSReadLine
 
-# https://gallery.technet.microsoft.com/WHOIS-PowerShell-Function-ed69fde6
-Unblock-File $home\scripts\whois.ps1
-. $home\scripts\whois.ps1
-
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
 
+# Produce UTF-8 by default
+# https://news.ycombinator.com/item?id=12991690
+$PSDefaultParameterValues["Out-File:Encoding"]="utf8"
 
+# http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
+Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 
 # Tab completion for git
 # Install-Module posh-git
 # Load posh-git example profile
 # . 'C:\Users\mike\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1'
 
+#######################################################
+# General useful Windows-specific commands
+#######################################################
+
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
 . 'C:\Users\mike\powershell\Get-NetworkStatistics.ps1'
-
-function uptime {
-	Get-WmiObject win32_operatingsystem | select csname, @{LABEL='LastBootUpTime';
-	EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}
-}
 
 function edit-powershell-profile {
 	subl $profile
@@ -88,73 +86,6 @@ function unarchive([string]$file, [string]$outputDir = '') {
 	7z e "-o$outputDir" $file
 }
 
-#######################################################
-# Prompt Tools
-#######################################################
-
-# https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
-function prompt {
-	$realLASTEXITCODE = $LASTEXITCODE
-	Write-Host $(Truncate-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
-	Write-Host " $" -NoNewline
-	$global:LASTEXITCODE = $realLASTEXITCODE
-	Return " "
-}
-
-function Truncate-HomeDirectory($Path) {
-	$Path.Replace("$home", "~")
-}
-
-function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.DirectoryInfo]$Parent) {
-	write-host $Child.FullName | select '*'
-	$Child.FullName.StartsWith($Parent.FullName)
-}
-
-# Produce UTF-8 by default
-# https://news.ycombinator.com/item?id=12991690
-$PSDefaultParameterValues["Out-File:Encoding"]="utf8"
-
-#######################################################
-# Dev Tools
-#######################################################
-function subl {
-	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
-}
-
-function explorer {
-	explorer.exe .
-}
-
-function gg {
-	& git grep -n -i @args
-}
-
-function stree {
-	$SourceTreeCommand = (Get-ItemProperty HKCU:\Software\Classes\sourcetree\shell\open\command).'(default)'.split()[0].replace('"','')
-	& $SourceTreeCommand -f .
-}
-
-function open($file) {
-	ii $file
-}
-
-# http://stackoverflow.com/questions/39148304/fuser-equivalent-in-powershell/39148540#39148540
-function fuser($relativeFile){
-	$file = Resolve-Path $relativeFile
-	echo "Looking for processes using $file"
-	foreach ( $Process in (Get-Process)) {
-		foreach ( $Module in $Process.Modules) {
-			if ( $Module.FileName -like "$file*" ) {
-				$Process | select id, path
-			}
-		}
-	}
-}
-
-#######################################################
-# Useful shell aliases
-#######################################################
-
 function findfile($name) {
 	ls -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach {
 		$place_path = $_.directory
@@ -174,16 +105,82 @@ function git-show-untracked {
 	git ls-files . --exclude-standard --others
 }
 
+# https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
+function prompt {
+	$realLASTEXITCODE = $LASTEXITCODE
+	Write-Host $(Truncate-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
+	Write-Host " $" -NoNewline
+	$global:LASTEXITCODE = $realLASTEXITCODE
+	Return " "
+}
+
+function Truncate-HomeDirectory($Path) {
+	$Path.Replace("$home", "~")
+}
+
+function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.DirectoryInfo]$Parent) {
+	write-host $Child.FullName | select '*'
+	$Child.FullName.StartsWith($Parent.FullName)
+}
+
+function gg {
+	& git grep -n -i @args
+}
+
+
+function open($file) {
+	ii $file
+}
+
+
+#######################################################
+# Dev Tools
+#######################################################
+function subl {
+	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
+}
+
+function explorer {
+	explorer.exe .
+}
+
+function stree {
+	$SourceTreeCommand = (Get-ItemProperty HKCU:\Software\Classes\sourcetree\shell\open\command).'(default)'.split()[0].replace('"','')
+	& $SourceTreeCommand -f .
+}
+
+
+
+
 #######################################################
 # Unixlike commands
 #######################################################
 
-function df {
-	get-volume
+# http://stackoverflow.com/questions/39148304/fuser-equivalent-in-powershell/39148540#39148540
+function fuser($relativeFile){
+	$file = Resolve-Path $relativeFile
+	echo "Looking for processes using $file"
+	foreach ( $Process in (Get-Process)) {
+		foreach ( $Module in $Process.Modules) {
+			if ( $Module.FileName -like "$file*" ) {
+				$Process | select id, path
+			}
+		}
+	}
 }
 
-function cut($delimiter, $fieldNumber) {
-	$input | ForEach-Object { $_.split($delimiter)[$fieldNumber] }
+# https://gallery.technet.microsoft.com/WHOIS-PowerShell-Function-ed69fde6
+Unblock-File $home\scripts\whois.ps1
+. $home\scripts\whois.ps1
+
+
+function uptime {
+	Get-WmiObject win32_operatingsystem | select csname, @{LABEL='LastBootUpTime';
+	EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}
+}
+
+function df {
+	get-volume
 }
 
 function sed($file, $find, $replace){
@@ -191,7 +188,7 @@ function sed($file, $find, $replace){
 }
 
 function sed-recursive($filePattern, $find, $replace) {
-	$files = ls . "$filePattern" -rec -Exclude
+	$files = ls . "$filePattern" -rec # -Exclude
 	foreach ($file in $files) {
 		(Get-Content $file.PSPath) |
 		Foreach-Object { $_ -replace "$find", "$replace" } |
@@ -241,18 +238,13 @@ function touch($file) {
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
-function make-link ($target, $link) {
+function make-link($target, $link) {
 	New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
 
-# From https://github.com/keithbloom/powe	rshell-profile/blob/master/Microsoft.PowerShell_profile.ps1
-function sudo {
-	$file, [string]$arguments = $args;
-	$psi = new-object System.Diagnostics.ProcessStartInfo $file;
-	$psi.Arguments = $arguments;
-	$psi.Verb = "runas";
-	$psi.WorkingDirectory = get-location;
-	[System.Diagnostics.Process]::Start($psi) >> $null
+# From https://github.com/Pscx/Pscx
+function sudo(){
+	Invoke-Elevated @args
 }
 
 # https://gist.github.com/aroben/5542538
@@ -336,8 +328,6 @@ function openssl-view-ecc-key ($file) {
 	openssl ec -check -in $file
 }
 
-
-
 function openssl-view-pkcs12 ($file) {
 	echo "openssl pkcs12 -info -in $file"
 	openssl pkcs12 -info -in $file
@@ -374,9 +364,10 @@ function openssl-check-rsa-certificate-modulus {
 	openssl x509 -noout -modulus -in "${1}" | shasum -a 256
 }
 
-# Check the modulus of an ECDSA certificate (to see if it matches a key)
-function openssl-check-ecdsa-certificate-modulus {
-	echo "openssl x509 -noout -modulus -in "${1}" | shasum -a 256"
+# Check the public point value of an ECDSA certificate (to see if it matches a key)
+# See https://security.stackexchange.com/questions/73127/how-can-you-check-if-a-private-key-and-certificate-match-in-openssl-with-ecdsa
+function openssl-check-ecdsa-certificate-ppv-and-curve {
+	echo "openssl x509 -in "${1}" -pubkey | shasum -a 256"
 	openssl x509 -noout -pubkey -in "${1}" | shasum -a 256
 }
 
@@ -386,14 +377,15 @@ function openssl-check-rsa-key-modulus {
 	openssl rsa -noout -modulus -in "${1}" | shasum -a 256
 }
 
-# Check the modulus of an ECDSA key (to see if it matches a certificate)
-function openssl-check-rsa-key-modulus {
-	echo "openssl pkey -pubout -in "${1}" | shasum -a 256"
+# Check the public point value of an ECDSA key (to see if it matches a certificate)
+# See https://security.stackexchange.com/questions/73127/how-can-you-check-if-a-private-key-and-certificate-match-in-openssl-with-ecdsa
+function openssl-check-ecc-key-ppv-and-curve {
+	echo "openssl ec -in "${1}" -pubout | shasum -a 256"openssl ec -in key -pubout
 	openssl pkey -pubout -in "${1}" | shasum -a 256
 }
 
 # Check the modulus of a certificate request
-function openssl-check-key-modulus {
+function openssl-check-rsa-csr-modulus {
 	echo openssl req -noout -modulus -in "${1}" | shasum -a 256
 	openssl req -noout -modulus -in "${1}" | shasum -a 256
 }
@@ -429,7 +421,5 @@ function openssl-key-and-intermediate-to-unified-pem() {
 	echo -e "$(cat "${1}")\n$(cat "${2}")" > "${1:0:-4}"_unified.pem
 }
 
-# http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
-Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 
 echo 'Mike profile loaded.'
