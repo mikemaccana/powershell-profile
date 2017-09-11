@@ -11,10 +11,6 @@ Aliases for Unix commands, and other useful bits and pieces.
 
 `trash` - move a file or folder to the recycle bun
 
-`whois`
-
-`uptime`
-
 `change-title`
 
 `get-windows-build`
@@ -49,10 +45,11 @@ Aliases for Unix commands, and other useful bits and pieces.
 
 ## Unixlike commands
 
-
-`fuser`
+`whois`
 
 `uptime`
+
+`fuser`
 
 `df`
 
