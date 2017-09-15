@@ -146,8 +146,8 @@ function explorer {
 }
 
 function stree {
-	$SourceTreeCommand = (Get-ItemProperty HKCU:\Software\Classes\sourcetree\shell\open\command).'(default)'.split()[0].replace('"','')
-	& $SourceTreeCommand -f .
+	$SourceTreeFolder =  ls ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
+	& $SourceTreeFolder/SourceTree.exe -f .
 }
 
 
