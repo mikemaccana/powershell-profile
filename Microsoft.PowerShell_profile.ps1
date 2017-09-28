@@ -422,5 +422,16 @@ function openssl-key-and-intermediate-to-unified-pem() {
 	echo -e "$(cat "${1}")\n$(cat "${2}")" > "${1:0:-4}"_unified.pem
 }
 
+# yarn broke 'ls'
+function yarn() {
+	$modifiedArgs = @()
+	foreach ( $arg in $args ) {
+		if ( $arg -cmatch '^ls$' ) {
+			$arg = 'list'
+		}
+		$modifiedArgs += $arg
+	}
+	& 'C:\Program Files (x86)\Yarn\bin\yarn.cmd' $modifiedArgs
+}
 
 echo 'Mike profile loaded.'
