@@ -251,8 +251,12 @@ function touch($file) {
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
-function make-link($target, $link) {
-	New-Item -Path $link -ItemType SymbolicLink -Value $target
+function ln($target, $link) {
+	New-Item -ItemType SymbolicLink -Path $link -Value $target
+}
+
+function make-link {
+	ln
 }
 
 # From https://github.com/Pscx/Pscx
