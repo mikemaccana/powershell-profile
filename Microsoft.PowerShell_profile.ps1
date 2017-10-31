@@ -135,7 +135,9 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
 }
 
 function gg {
-	& git grep -n -i @args
+	# Replace file:linenumber:content with file:linenumber:content
+	# so you can just click the file:linenumber and go straight there.
+	& git grep -n -i @args | % { $_ -replace '(\d+):','$1 ' }  
 }
 
 
