@@ -12,11 +12,11 @@ The details below are minimal, but the names of most commands make things fairly
 
 `trash` - move a file or folder to the recycle bun
 
-`change-title`
+`change-title` - change the title of the terminal app
 
-`get-windows-build`
+`get-windows-build` - get the full WIndows build number
 
-`unarchive`
+`unarchive` - 
 
 `prompt` - neat Unix-like prompt
 
