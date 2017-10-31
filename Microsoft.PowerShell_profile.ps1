@@ -438,16 +438,21 @@ function openssl-key-and-intermediate-to-unified-pem() {
 	echo -e "$(cat "${1}")\n$(cat "${2}")" > "${1:0:-4}"_unified.pem
 }
 
-# yarn broke 'ls'
-function yarn() {
+# Scope private do we don't call yarn recursively!
+function Private:yarn() {
 	$modifiedArgs = @()
 	foreach ( $arg in $args ) {
+		# yarn broke 'ls'
 		if ( $arg -cmatch '^ls$' ) {
 			$arg = 'list'
 		}
 		$modifiedArgs += $arg
+		# we're using a monorepo, and only add packages to
+		# our workspace if we write them ourselves
+		if ( $arg -cmatch 'add' ) {
+			$modifiedArgs += '--ignore-workspace-root-check'
+		}
 	}
-	& 'C:\Program Files (x86)\Yarn\bin\yarn.cmd' $modifiedArgs
+	& yarn $modifiedArgs
 }
-
 echo 'Mike profile loaded.'
