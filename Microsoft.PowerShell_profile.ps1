@@ -56,8 +56,18 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
 . 'C:\Users\mike\powershell\Get-NetworkStatistics.ps1'
 
+# Kinda like $EDITOR in nix
+# You may prefer eg 'subl' or whatever else
+function edit {
+	& "code-insiders" -g @args
+}
+
+function subl {
+	echo "Type 'edit' instead"
+}
+
 function edit-powershell-profile {
-	subl $profile
+	edit $profile
 }
 
 function reload-powershell-profile {
