@@ -228,6 +228,9 @@ function grepv($regex) {
 	$input | ? { !$_.Contains($regex) }
 }
 
+function show-links($dir){
+	ls $dir | ?{$_.LinkType} | select FullName,LinkType,Target
+}
 function which($name) {
 	Get-Command $name | Select-Object -ExpandProperty Definition
 }
