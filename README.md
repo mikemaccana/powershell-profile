@@ -4,7 +4,7 @@
 
 Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's Dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
 
-**If you come from a *nix background, and want to use Powershell properly, this is the right place.**
+**If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
  - Implementations of a bunch of Unix commands
  - The code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
