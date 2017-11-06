@@ -151,7 +151,7 @@ function gg {
 	& git grep -n -i @args | % { $_ -replace '(\d+):','$1 ' }  
 }
 
-
+Set-Alias trash Remove-ItemSafely
 function open($file) {
 	ii $file
 }
