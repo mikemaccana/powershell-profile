@@ -1,10 +1,19 @@
 # Mike's Powershell Profile
 
-Aliases for Unix commands, and other useful bits and pieces.
+Heya. I've been using bash for about two decades before getting onto Powershell. I develop node and TypeScript apps at [https://certsimple.com](CertSimple). 
+
+If you come from a nox background, and want to use Powershell properly, this is the right place.
+
+ - Aliases for a bunch of Unix commands
+ - Useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes.
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
 ## Prerequsities
+
+## For a decent, tabbed terminal
+
+A future release of Windows 10 will ship with a tabbed terminal (with multi process and everything) but in the meantime, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [still has issues](https://github.com/zeit/hyper/issues/1121).
 
 ### For 'less' (except in ISE) and a bunch of other useful stuff
 
