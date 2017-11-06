@@ -1,15 +1,17 @@
 # Mike's Powershell Profile
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I've worked at both Red Hat in the early days and IBM's Dedicated Linux team. I now develop node and TypeScript while trying to make verifying websites (EV HTTPS) less painful [CertSimple](https://certsimple.com). 
+## A powershell profile for *nix users which accidentally became the most starred Powershell profile on github
 
-If you come from a *nix background, and want to use Powershell properly, this is the right place.
+Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's Dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
+
+**If you come from a *nix background, and want to use Powershell properly, this is the right place.**
 
  - Implementations of a bunch of Unix commands
- - The code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes.
+ - The code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
-## Prerequisities
+## Prerequisities for any *nix user who wants to use Powershell
 
 ### For a decent, tabbed terminal
 
@@ -89,9 +91,9 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `grepv` - aka `grep -v`
 
-`which`
+`which` -
 
-`export`
+`export` - sets an environment variable
 
 `pkill`
 
