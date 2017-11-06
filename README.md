@@ -22,7 +22,7 @@ The details below are minimal, but the names of most commands make things fairly
 
 `open` - open a file with whatever Windows uses
 
-`findfile`
+`findfile` 
 
 `get-path`
 
@@ -79,7 +79,6 @@ The details below are minimal, but the names of most commands make things fairly
 `unzip`
 
 ## Crypto
-
 
 `openssl-check-ecc-key-ppv-and-curve`
 

@@ -167,7 +167,6 @@ function subl {
 function explorer {
 	explorer.exe .
 }
-
 function stree {
 	$SourceTreeFolder =  ls ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
 	& $SourceTreeFolder/SourceTree.exe -f .
@@ -210,7 +209,6 @@ function df {
 function sed($file, $find, $replace){
 	(Get-Content $file).replace("$find", $replace) | Set-Content $file
 }
-
 function sed-recursive($filePattern, $find, $replace) {
 	$files = ls . "$filePattern" -rec # -Exclude
 	foreach ($file in $files) {
@@ -219,7 +217,6 @@ function sed-recursive($filePattern, $find, $replace) {
 		Set-Content $file.PSPath
 	}
 }
-
 function grep($regex, $dir) {
 	if ( $dir ) {
 		ls $dir | select-string $regex
@@ -227,7 +224,6 @@ function grep($regex, $dir) {
 	}
 	$input | select-string $regex
 }
-
 function grepv($regex) {
 	$input | ? { !$_.Contains($regex) }
 }
@@ -235,7 +231,6 @@ function grepv($regex) {
 function which($name) {
 	Get-Command $name | Select-Object -ExpandProperty Definition
 }
-
 function cut(){
 	foreach ($part in $input) {
 		$line = $part.ToString();
