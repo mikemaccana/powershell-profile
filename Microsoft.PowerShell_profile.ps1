@@ -2,11 +2,21 @@
 
 # Set-ExecutionPolicy unrestricted
 
-# Install OpenSSH
+# For OpenSSH
 # Note: do not install chocolatey. Use Install-Package instead.
 # Get-PackageProvider
 # Get-PackageSource -Provider chocolatey
 # Install-Package -Name openssh
+
+# For working less (except in ISE)
+# Install-Package Pscx
+
+# For history with up/down arrows, other useful vi/emacs keybindings
+# Install-Package PSReadLine
+
+# For 'Remove-ItemSafely' - ie, trashing files from the command line
+# Install-Module -Name Recycle
+
 Add-PathVariable "${env:ProgramFiles}\OpenSSH"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\7-Zip"
@@ -23,15 +33,8 @@ Add-PathVariable '.\node_modules\.bin'
 
 # $env:NODE_PATH = "C:\Users\mike\AppData\Roaming\npm"
 
-# For 'Remove-ItemSafely' - ie, trashing files from the command line
-# Install-Module -Name Recycle
-Set-Alias trash Remove-ItemSafely
 
-# For working less (except in ISE)
-# Install-Package Pscx
 
-# For history with up/down arrows
-# Install-Package PSReadLine
 Import-Module PSReadLine
 
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
