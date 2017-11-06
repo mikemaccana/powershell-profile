@@ -21,27 +21,27 @@ A future release of Windows 10 will ship with a tabbed terminal (with multi proc
 
 Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
-  Install-Package Pscx
+	Install-Package Pscx
 
 ### For history with up/down arrows, other useful vi/emacs keybindings
 
 Run:
 
-  Install-Package PSReadLine
+	Install-Package PSReadLine
 
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
 Run:
 
-  Install-Module -Name Recycle
+	Install-Module -Name Recycle
 
 ### For OpenSSH
 
 Run:
 
-  Get-PackageProvider
-  Get-PackageSource -Provider chocolatey
-  Install-Package -Name openssh
+	Get-PackageProvider
+	Get-PackageSource -Provider chocolatey
+	Install-Package -Name openssh
 
 ### For OpenSSL
 
@@ -121,7 +121,7 @@ The popular 'Shining Light' version is an unsigned binary downloaded over an ins
 
 `sudo` -  Note you'll want to quote the command, eg 
 
-  sudo "mkdir 'C:\Program Files\openssl'"
+	sudo "mkdir 'C:\Program Files\openssl'"
 
 `pstree`
 
