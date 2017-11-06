@@ -36,6 +36,11 @@ Add-PathVariable '.\node_modules\.bin'
 
 
 Import-Module PSReadLine
+# Note PSReadLine uses vi keybindings by default. If you want emacs (default on Linux)
+# Set-PSReadlineOption -EditMode Emacs
+# I like vi keybindings, so I just add my favourite one from emacs
+# See https://github.com/lzybkr/PSReadLine#usage
+Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
 
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
