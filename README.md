@@ -11,7 +11,7 @@ The details below are minimal, but the names of most commands make things fairly
 
 ## Prerequisities
 
-## For a decent, tabbed terminal
+### For a decent, tabbed terminal
 
 A future release of Windows 10 will ship with a tabbed terminal (with multi process and everything) but in the meantime, [ConEmu](https://conemu.github.io/) is your best bet. 
 
@@ -23,11 +23,11 @@ Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx)
 
   Install-Package Pscx
 
-## For history with up/down arrows, other useful vi/emacs keybindings
+### For history with up/down arrows, other useful vi/emacs keybindings
 
   Install-Package PSReadLine
 
-# For 'Remove-ItemSafely' - ie, trashing files from the command line
+### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
   Install-Module -Name Recycle
 
