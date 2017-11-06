@@ -19,19 +19,25 @@ A future release of Windows 10 will ship with a tabbed terminal (with multi proc
 
 ### For 'less' (except in ISE) and a bunch of other useful stuff
 
-Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx)
+Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
   Install-Package Pscx
 
 ### For history with up/down arrows, other useful vi/emacs keybindings
 
+Run:
+
   Install-Package PSReadLine
 
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
+Run:
+
   Install-Module -Name Recycle
 
 ### For OpenSSH
+
+Run:
 
   Get-PackageProvider
   Get-PackageSource -Provider chocolatey
