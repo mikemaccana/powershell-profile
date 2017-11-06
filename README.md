@@ -1,23 +1,25 @@
 # Mike's Powershell Profile
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I develop node and TypeScript apps at [https://certsimple.com](CertSimple). 
+Heya. I've been using bash for about two decades before getting onto Powershell. I develop node and TypeScript apps at [CertSimple](https://certsimple.com). 
 
-If you come from a nox background, and want to use Powershell properly, this is the right place.
+If you come from a *nix background, and want to use Powershell properly, this is the right place.
 
- - Aliases for a bunch of Unix commands
- - Useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes.
+ - Implementations of a bunch of Unix commands
+ - The code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes.
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
-## Prerequsities
+## Prerequisities
 
 ## For a decent, tabbed terminal
 
-A future release of Windows 10 will ship with a tabbed terminal (with multi process and everything) but in the meantime, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [still has issues](https://github.com/zeit/hyper/issues/1121).
+A future release of Windows 10 will ship with a tabbed terminal (with multi process and everything) but in the meantime, [ConEmu](https://conemu.github.io/) is your best bet. 
+
+[Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121).
 
 ### For 'less' (except in ISE) and a bunch of other useful stuff
 
-Get the [Powershell Community Extensions]()
+Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx)
 
   Install-Package Pscx
 
@@ -37,7 +39,9 @@ Get the [Powershell Community Extensions]()
 
 ### For OpenSSL
 
-Use [this up to date, secure source](https://indy.fulgan.com/SSL/). The popular Shining Light version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.   
+Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
+
+The popular 'Shining Light' version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.
 
 ## Useful Windows-specific commands
 
@@ -55,11 +59,11 @@ Use [this up to date, secure source](https://indy.fulgan.com/SSL/). The popular 
 
 `prompt` - neat Unix-like prompt
 
-`open` - open a file with whatever Windows uses
+`open` - open a file with whatever program Windows uses for that file type
 
-`findfile` 
+`findfile` - like  `find -name`
 
-`get-path`
+`get-path` - show $PATH as a series of strings.
 
 ## Dev Tools
 
@@ -77,11 +81,11 @@ Use [this up to date, secure source](https://indy.fulgan.com/SSL/). The popular 
 
 ## Unixlike commands
 
-`whois`
+`whois` 
 
-`uptime`
+`uptime` - show time since last boot up
 
-`fuser`
+`fuser` 
 
 `df` - disk space free
 
