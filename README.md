@@ -49,43 +49,15 @@ Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/
 
 The popular 'Shining Light' version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.
 
-## Useful Windows-specific commands
-
-`edit-powershell-profile`
-
-`reload-powershell-profile`
-
-`trash` - move a file or folder to the recycle bun
-
-`change-title` - change the title of the terminal app
-
-`get-windows-build` - get the full WIndows build number
+## Included Unixlike commands
 
 `unarchive` - 
-
-`prompt` - neat Unix-like prompt
-
-`open` - open a file with whatever program Windows uses for that file type
 
 `findfile` - like  `find -name`
 
 `get-path` - show $PATH as a series of strings.
 
-## Dev Tools
-
-`subl` - Sublime Text
-
-`explorer` - Windows Explorer
-
-`stree` - SourceTree
-
-`git-show-ignored`
-
-`git-show-untracked`
-
-`gg` - git grep
-
-## Unixlike commands
+`prompt` - neat Unix-like prompt
 
 `whois` 
 
@@ -126,6 +98,38 @@ The popular 'Shining Light' version is an unsigned binary downloaded over an ins
 `pstree`
 
 `unzip`
+
+## Included Windows-specific commands
+
+`edit-powershell-profile`
+
+`reload-powershell-profile`
+
+`trash` - move a file or folder to the recycle bun
+
+`change-title` - change the title of the terminal app
+
+`get-windows-build` - get the full WIndows build number
+
+## Included Dev Tools
+
+`subl` - Sublime Text
+
+`explorer` - Windows Explorer
+
+`stree` - SourceTree
+
+`open` - open a file with whatever program Windows uses for that file type
+
+
+
+## Included Git shortcuts
+
+`git-show-ignored`
+
+`git-show-untracked`
+
+`gg` - git grep
 
 ## Crypto
 
