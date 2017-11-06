@@ -270,6 +270,13 @@ function make-link {
 	ln
 }
 
+function file($file) {
+	$extension = (Get-Item $file).Extension
+	$fileType = (gp "Registry::HKEY_Classes_root\$extension")."(default)"
+	$description =  (gp "Registry::HKEY_Classes_root\$fileType")."(default)"
+	echo $description
+}
+
 # From https://github.com/Pscx/Pscx
 function sudo(){
 	Invoke-Elevated @args
