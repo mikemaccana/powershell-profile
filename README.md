@@ -73,11 +73,11 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `prompt` - neat Unix-like prompt
 
-`whois` 
+`whois` - show domain contact info
 
 `uptime` - show time since last boot up
 
-`fuser` 
+`fuser` - show the processes using a file
 
 `df` - disk space free
 
@@ -123,7 +123,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `change-title` - change the title of the terminal app
 
-`get-windows-build` - get the full WIndows build number
+`get-windows-build` - get the full Windows build number (for reporting bugs to vendors)
 
 ## Included Dev Tools
 
