@@ -45,6 +45,9 @@ Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
 
+# PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR
+New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT
+
 # Produce UTF-8 by default
 # https://news.ycombinator.com/item?id=12991690
 $PSDefaultParameterValues["Out-File:Encoding"]="utf8"
