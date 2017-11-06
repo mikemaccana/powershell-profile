@@ -1,6 +1,6 @@
 # Mike's Powershell Profile
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I develop node and TypeScript apps at [CertSimple](https://certsimple.com). 
+Heya. I've been using bash for about two decades before getting onto Powershell. I've worked at both Red Hat in the early days and IBM's Dedicated Linux team. I now develop node and TypeScript while trying to make verifying websites (EV HTTPS) less painful [CertSimple](https://certsimple.com). 
 
 If you come from a *nix background, and want to use Powershell properly, this is the right place.
 
@@ -48,6 +48,18 @@ Run:
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
 The popular 'Shining Light' version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.
+
+## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
+
+These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about *nix. 
+
+`select` (also called `select-object`) - select the fields you want on an object
+
+`get-member` - show the properties and methods of an object
+
+`get-itemproperty` - show the properties of registry objects (`ls` only shows children)
+
+`where` - choose items matching some criteria.
 
 ## Included Unixlike commands
 
@@ -119,9 +131,7 @@ The popular 'Shining Light' version is an unsigned binary downloaded over an ins
 
 `stree` - SourceTree
 
-`open` - open a file with whatever program Windows uses for that file type
-
-
+`open` - open a file with the program Windows uses for that file type
 
 ## Included Git shortcuts
 
@@ -133,40 +143,46 @@ The popular 'Shining Light' version is an unsigned binary downloaded over an ins
 
 ## Crypto
 
-`openssl-check-ecc-key-ppv-and-curve`
-
-`openssl-encrypt`
-
-`openssl-check-ecdsa-certificate-ppv-and-curve`
-
-`openssl-key-and-intermediate-to-unified-pem`
-
-`openssl-check-rsa-certificate-modulus`
-
-`openssl-key-to-hpkp-pin`
-
-`openssl-check-rsa-csr-modulus`
+### Viewing keys / certs / CSRs 
 
 `openssl-view-certificate`
 
-`openssl-check-rsa-key-modulus`
-
 `openssl-view-csr`
-
-`openssl-client`
-
-`openssl-view-ecc-key`
-
-`openssl-convert-p12-to-pem`
-
-`openssl-view-pkcs12`
-
-`openssl-convert-pem-to-p12`
 
 `openssl-view-rsa-key`
 
+`openssl-view-ecc-key`
+
+`openssl-view-pkcs12`
+
+`openssl-convert-p12-to-pem`
+
+### Checking if keys / certs / CSRs match
+
+`openssl-check-rsa-key-modulus`
+
+`openssl-check-rsa-certificate-modulus`
+
+`openssl-check-rsa-csr-modulus`
+
+`openssl-check-ecc-key-ppv-and-curve`
+
+`openssl-check-ecdsa-certificate-ppv-and-curve`
+
+### Tools
+
+`openssl-client`
+
+`openssl-convert-pem-to-p12`
+
 `openssl-crt-to-pem`
 
-`openssl-website-to-hpkp-pin`
+`openssl-encrypt`
 
 `openssl-decrypt`
+
+`openssl-key-to-hpkp-pin`
+
+`openssl-key-and-intermediate-to-unified-pem`
+
+`openssl-website-to-hpkp-pin`
