@@ -2,26 +2,11 @@
 
 # Set-ExecutionPolicy unrestricted
 
-# For OpenSSH
-# Note: do not install chocolatey. Use Install-Package instead.
-# Get-PackageProvider
-# Get-PackageSource -Provider chocolatey
-# Install-Package -Name openssh
-
-# For working less (except in ISE)
-# Install-Package Pscx
-
-# For history with up/down arrows, other useful vi/emacs keybindings
-# Install-Package PSReadLine
-
-# For 'Remove-ItemSafely' - ie, trashing files from the command line
-# Install-Module -Name Recycle
-
 Add-PathVariable "${env:ProgramFiles}\OpenSSH"
+Add-PathVariable "${env:ProgramFiles}\OpenSSL"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\7-Zip"
 Add-PathVariable "${env:ProgramFiles}\wtrace"
-Add-PathVariable "C:\OpenSSL-Win32\bin"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
@@ -254,7 +239,6 @@ function pkill($name) {
 function pgrep($name) {
 	ps $name
 }
-
 function touch($file) {
 	"" | Out-File $file -Encoding ASCII
 }

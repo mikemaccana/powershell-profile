@@ -4,6 +4,32 @@ Aliases for Unix commands, and other useful bits and pieces.
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
+## Prerequsities
+
+### For 'less' (except in ISE) and a bunch of other useful stuff
+
+Get the [Powershell Community Extensions]()
+
+  Install-Package Pscx
+
+## For history with up/down arrows, other useful vi/emacs keybindings
+
+  Install-Package PSReadLine
+
+# For 'Remove-ItemSafely' - ie, trashing files from the command line
+
+  Install-Module -Name Recycle
+
+### For OpenSSH
+
+  Get-PackageProvider
+  Get-PackageSource -Provider chocolatey
+  Install-Package -Name openssh
+
+### For OpenSSL
+
+Use [this up to date, secure source](https://indy.fulgan.com/SSL/). The popular Shining Light version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.   
+
 ## Useful Windows-specific commands
 
 `edit-powershell-profile`
@@ -48,17 +74,17 @@ The details below are minimal, but the names of most commands make things fairly
 
 `fuser`
 
-`df`
+`df` - disk space free
 
-`cut`
+`cut` 
 
-`sed`
+`sed` - replace a regex with a string. 
 
 `sed-recursive`
 
-`grep`
+`grep` - file lines matching a regular expression
 
-`grepv`
+`grepv` - aka `grep -v`
 
 `which`
 
@@ -66,13 +92,17 @@ The details below are minimal, but the names of most commands make things fairly
 
 `pkill`
 
-`pgrep`
+`pgrep` - 
 
-`touch`
+`touch` - make a blank file
 
-`make-link`
+`file` - show a file's type description
 
-`sudo`
+`make-link` - Make a symlink
+
+`sudo` -  Note you'll want to quote the command, eg 
+
+  sudo "mkdir 'C:\Program Files\openssl'"
 
 `pstree`
 
