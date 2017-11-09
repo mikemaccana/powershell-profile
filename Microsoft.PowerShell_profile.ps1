@@ -30,7 +30,7 @@ Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
 
-# PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR
+# PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 
 # Produce UTF-8 by default
@@ -431,14 +431,6 @@ function openssl-website-to-hpkp-pin() {
 	echo openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
 	openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
 }
-
-# Combines the key and the intermediate in a unified PEM file
-# (eg, for nginx)
-function openssl-key-and-intermediate-to-unified-pem() {
-	echo echo -e "$(cat "${1}")\n$(cat "${2}")" > "${1:0:-4}"_unified.pem
-	echo -e "$(cat "${1}")\n$(cat "${2}")" > "${1:0:-4}"_unified.pem
-}
-
 # Scope private do we don't call yarn recursively!
 function Private:yarn() {
 	$modifiedArgs = @()
