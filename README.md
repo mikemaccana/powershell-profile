@@ -81,11 +81,11 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `df` - disk space free
 
-`cut` 
+`cut` - cut particular characters from lines
 
 `sed` - replace a regex with a string. 
 
-`sed-recursive`
+`sed-recursive` - stream edit recursively. 
 
 `grep` - file lines matching a regular expression
 
@@ -109,7 +109,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 	sudo "mkdir 'C:\Program Files\openssl'"
 
-`pstree`
+`pstree` - like `pstree` or `ps -f` on a Linux or Unix box.
 
 `unzip`
 
@@ -175,16 +175,19 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `openssl-client`
 
-`openssl-convert-pem-to-p12`
-
-`openssl-crt-to-pem`
-
 `openssl-encrypt`
 
 `openssl-decrypt`
 
 `openssl-key-to-hpkp-pin`
 
+`openssl-website-to-hpkp-pin`
+
+### Format conversion
+
+`openssl-convert-pem-to-p12`
+
+`openssl-crt-to-pem`
+
 `openssl-key-and-intermediate-to-unified-pem`
 
-`openssl-website-to-hpkp-pin`
