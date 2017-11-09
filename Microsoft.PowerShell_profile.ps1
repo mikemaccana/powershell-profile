@@ -55,7 +55,7 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 # Kinda like $EDITOR in nix
 # You may prefer eg 'subl' or whatever else
 function edit {
-	& "code-insiders" -g @args
+	& "code" -g @args
 }
 
 function subl {
