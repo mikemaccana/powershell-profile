@@ -189,5 +189,3 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `openssl-crt-to-pem`
 
-`openssl-key-and-intermediate-to-unified-pem`
-
