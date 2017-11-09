@@ -145,9 +145,10 @@ function open($file) {
 #######################################################
 # Dev Tools
 #######################################################
-function subl {
-	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
-}
+
+# function subl {
+# 	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
+# }
 
 function explorer {
 	explorer.exe .
