@@ -65,7 +65,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 ## Included Unixlike commands
 
-`unarchive` - 
+`extact-archive` - extracts files using 7zip. Output dir is name of file minus extension. Handles `.tar.gz`'s without creating temp files.
 
 `findfile` - like  `find -name`
 

@@ -81,16 +81,32 @@ function get-windows-build {
 }
 
 # http://mohundro.com/blog/2009/03/31/quickly-extract-files-with-powershell/
-function unarchive([string]$file, [string]$outputDir = '') {
+# and https://stackoverflow.com/questions/1359793/programmatically-extract-tar-gz-in-a-single-step-on-windows-with-7zip
+function extract-archive([string]$file, [string]$outputDir = '') {
 	if (-not (Test-Path $file)) {
 		$file = Resolve-Path $file
 	}
 
+	$baseName = ls $file | select -ExpandProperty "BaseName"
+
 	if ($outputDir -eq '') {
-		$outputDir = [System.IO.Path]::GetFileNameWithoutExtension($file)
+		$outputDir = $baseName
 	}
 
-	7z e "-o$outputDir" $file
+	# Check if there's a tar inside
+	# We use the .net method as this file (x.tar) doesn't exist!
+	$secondExtension = [System.IO.Path]::GetExtension($baseName)
+	$secondBaseName = [System.IO.Path]::GetFileNameWithoutExtension($baseName)
+
+	if ( $secondExtension -eq '.tar' ) {
+		# This is a tarball
+		$outputDir = $secondBaseName
+		echo "Output dir will be $outputDir"		
+		7z x $file -so | 7z x -aoa -si -ttar -o"$outputDir"
+		return
+	} 
+	# Just extract the file
+	7z x "-o$outputDir" $file	
 }
 
 function findfile($name) {
@@ -253,7 +269,7 @@ function make-link {
 	ln
 }
 
-function file($file) {
+function Private:file($file) {
 	$extension = (Get-Item $file).Extension
 	$fileType = (gp "Registry::HKEY_Classes_root\$extension")."(default)"
 	$description =  (gp "Registry::HKEY_Classes_root\$fileType")."(default)"
@@ -311,13 +327,6 @@ function pstree {
 	foreach ($Process in ($ProcessesWithoutParents | Sort-Object CreationDate)) {
 		Show-ProcessTree $Process.ProcessId 0
 	}
-}
-
-function unzip ($file) {
-	$dirname = (Get-Item $file).Basename
-	echo("Extracting", $file, "to", $dirname)
-	New-Item -Force -ItemType directory -Path $dirname
-	expand-archive $file -OutputPath $dirname -ShowProgress
 }
 
 # From https://certsimple.com/blog/openssl-shortcuts
@@ -431,6 +440,7 @@ function openssl-website-to-hpkp-pin() {
 	echo openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
 	openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
 }
+
 # Scope private do we don't call yarn recursively!
 function Private:yarn() {
 	$modifiedArgs = @()
