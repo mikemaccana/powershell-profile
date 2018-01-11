@@ -3,7 +3,7 @@
 # Set-ExecutionPolicy unrestricted
 
 Add-PathVariable "${env:ProgramFiles}\OpenSSH"
-Add-PathVariable "${env:ProgramFiles}\OpenSSL"
+Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\7-Zip"
 Add-PathVariable "${env:ProgramFiles}\wtrace"
@@ -12,6 +12,10 @@ Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
 # Add relative node_modules\.bin to PATH - this keeps updating as we `cd`
 Add-PathVariable '.\node_modules\.bin'
+
+# Various bits for openssl
+# $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
+# $env:RANDFILE="${env:LOCALAPPDATA}\openssl.rnd"
 
 # To use git supplied by SourceTree instead of the 'git for Windows' version
 # Add-PathVariable "${env:UserProfile}\AppData\Local\Atlassian\SourceTree\git_local\bin"
@@ -53,9 +57,9 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 . 'C:\Users\mike\powershell\Get-NetworkStatistics.ps1'
 
 # Kinda like $EDITOR in nix
-# You may prefer eg 'subl' or whatever else
+# You may prefer eg 'subl' or 'code' or whatever else
 function edit {
-	& "code" -g @args
+	& "code-insiders" -g @args
 }
 
 function subl {
@@ -200,8 +204,12 @@ Unblock-File $home\scripts\whois.ps1
 
 
 function uptime {
-	Get-WmiObject win32_operatingsystem | select csname, @{LABEL='LastBootUpTime';
+	Get-CimInstance Win32_OperatingSystem | select csname, @{LABEL='LastBootUpTime';
 	EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}
+}
+
+function get-serial-number {
+  Get-CimInstance -ClassName Win32_Bios | select serialnumber
 }
 
 function df {
@@ -213,6 +221,7 @@ function sed($file, $find, $replace){
 }
 function sed-recursive($filePattern, $find, $replace) {
 	$files = ls . "$filePattern" -rec # -Exclude
+	echo $files
 	foreach ($file in $files) {
 		(Get-Content $file.PSPath) |
 		Foreach-Object { $_ -replace "$find", "$replace" } |
@@ -257,7 +266,7 @@ function pgrep($name) {
 	ps $name
 }
 function touch($file) {
-	"" | Out-File $file -Encoding ASCII
+	New-Item $file -type file
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
