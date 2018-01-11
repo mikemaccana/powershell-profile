@@ -1,8 +1,6 @@
 # Mike's Powershell Profile
 
-## A powershell profile for *nix users which accidentally became the most starred Powershell profile on github
-
-Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's Dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
+Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
@@ -12,6 +10,10 @@ Heya. I've been using bash for about two decades before getting onto Powershell.
 The details below are minimal, but the names of most commands make things fairly obvious.
 
 ## Prerequisities for any *nix user who wants to use Powershell
+
+### Powershell 6 (also called Powershell Core 6)
+
+[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] is way faster than Powershell 5. Opening a new tab on Powershell 5 was slow. 6 is fast.
 
 ### For a decent, tabbed terminal
 
@@ -23,7 +25,7 @@ A future release of Windows 10 will ship with a tabbed terminal (with multi proc
 
 Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
-	Install-Package Pscx
+	Install-Module Pscx -Scope CurrentUser
 
 ### For history with up/down arrows, other useful vi/emacs keybindings
 
@@ -35,7 +37,7 @@ Run:
 
 Run:
 
-	Install-Module -Name Recycle
+	Install-Module -Name Recycle -Scope CurrentUser
 
 ### For OpenSSH
 
