@@ -41,11 +41,7 @@ Run:
 
 ### For OpenSSH
 
-Run:
-
-	Get-PackageProvider
-	Get-PackageSource -Provider chocolatey
-	Install-Package -Name openssh
+OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**
 
 ### For OpenSSL
 
