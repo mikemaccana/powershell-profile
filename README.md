@@ -23,7 +23,7 @@ Windows 10 build 1766 (run `[Environment]::OSVersion` to see your build) include
 
 <img src="windows-console.png"/>
 
-The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quicly start another tab of the same type as the current one should come in future. 
+The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quickly start another tab of the same type as the current one should come in future. 
 
 If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
 
