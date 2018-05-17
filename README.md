@@ -1,31 +1,31 @@
-# Mike's Powershell Profile (and how to set up Windows 10 if you've been using *nix for 20 years)
+# Mike's Powershell Profile (and how to set up Windows console if you've been using *nix for 20 years)
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
+Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make verifying companies for ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
  - Implementations of a bunch of Unix commands
- - The code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
+ - The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
 ## Prerequisities for any *nix user who wants to use Powershell
 
+This is what I install on any Windows 10 box.
+
 ### Powershell 6 (also called Powershell Core 6)
 
-[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] has a number of useful bits, but the main thing is it starts way faster than Powershell 5.
+[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
 ### For a decent, tabbed terminal
 
-Windows 10 build 1766 includes Sets - which provides a tabbed terminal out ofthe box when youy start Powershell Core 6 (and probably other apps but I don't care). 
+Windows 10 build 1766 (run `[Environment]::OSVersion` to see your build) includes Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
 
 <img src="windows-console.png"/>
 
-The process isn't ideal (you start a tab, then pick what app to run each time) but Microsoft are [still working on this](https://github.com/Microsoft/console/issues/49) and a way to quicly start another tab of the same type as the current one should come in future. 
+The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quicly start another tab of the same type as the current one should come in future. 
 
-If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. 
-
-[Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
+If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
 
 ### For 'less' and a bunch of other useful stuff
 
@@ -45,7 +45,7 @@ Run:
 
 	Install-Module -Name Recycle -Scope CurrentUser
 
-### T|o import your iterm
+### To import your iterm colors
 
 You can import and tweak an `.itermcolors` file using (terminal.sexy)[https://terminal.sexy] 
 
@@ -61,13 +61,13 @@ OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> 
 
 ### For OpenSSL
 
-Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work.
+Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work. Unless you do the same you probably don't need OpenSSL. 
 
-Windows SSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
+Windows OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
 
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
-The popular 'Shining Light' WIndows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
+The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
@@ -109,13 +109,13 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `grepv` - aka `grep -v`
 
-`which` -
+`which` - exactly like the Linux command
 
 `export` - sets an environment variable
 
-`pkill`
+`pkill` - exactly like the Linux command
 
-`pgrep` - 
+`pgrep` - exactly like the Linux command
 
 `touch` - make a blank file
 
@@ -155,9 +155,9 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 ## Included Git shortcuts
 
-`git-show-ignored`
+`git-show-ignored` - show ignored files
 
-`git-show-untracked`
+`git-show-untracked` - show untracked files
 
 `gg` - git grep
 
