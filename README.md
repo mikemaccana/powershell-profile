@@ -1,6 +1,6 @@
 # Mike's Powershell Profile (and how to set up Windows console if you've been using *nix for 20 years)
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make verifying companies for ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
+Heya. I've been using bash for about two decades before getting onto Powershell. I'm a \*nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with \*nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make verifying companies for ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
@@ -15,7 +15,7 @@ This is what I install on any Windows 10 box.
 
 ### Powershell 6 (also called Powershell Core 6)
 
-[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
+[Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
 ### For a decent, tabbed terminal
 
@@ -59,11 +59,11 @@ Run:
 
 OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**. 
 
-### For OpenSSL
+### For OpenSSL (if you need it)
 
 Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work. Unless you do the same you probably don't need OpenSSL. 
 
-Windows OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
+The Windows version of OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
 
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
@@ -81,7 +81,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `where` - choose items matching some criteria.
 
-## Included Unixlike commands
+## Included Unixlike commands in this profile
 
 `extact-archive` - extracts files using 7zip. Output dir is name of file minus extension. Handles `.tar.gz`'s without creating temp files.
 
