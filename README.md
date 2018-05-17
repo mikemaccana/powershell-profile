@@ -1,4 +1,4 @@
-# Mike's Powershell Profile
+# Mike's Powershell Profile (and how to set up Windows 10 if you've been using *nix for 20 years)
 
 Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect and Tech Lead. I now develop node and TypeScript while trying to make verifying websites ([EV HTTPS](https://certsimple.com/help/what-is-ev-ssl)) less painful at [CertSimple](https://certsimple.com). 
 
@@ -13,15 +13,21 @@ The details below are minimal, but the names of most commands make things fairly
 
 ### Powershell 6 (also called Powershell Core 6)
 
-[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] is way faster than Powershell 5. Opening a new tab on Powershell 5 was slow. 6 is fast.
+[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] has a number of useful bits, but the main thing is it starts way faster than Powershell 5.
 
 ### For a decent, tabbed terminal
 
-A future release of Windows 10 will ship with a tabbed terminal (with multi process and everything) but in the meantime, [ConEmu](https://conemu.github.io/) is your best bet. 
+Windows 10 build 1766 includes Sets - which provides a tabbed terminal out ofthe box when youy start Powershell Core 6 (and probably other apps but I don't care). 
 
-[Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121).
+<img src="windows-console.png"/>
 
-### For 'less' (except in ISE) and a bunch of other useful stuff
+The process isn't ideal (you start a tab, then pick what app to run each time) but Microsoft are [still working on this](https://github.com/Microsoft/console/issues/49) and a way to quicly start another tab of the same type as the current one should come in future. 
+
+If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. 
+
+[Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
+
+### For 'less' and a bunch of other useful stuff
 
 Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
@@ -29,7 +35,7 @@ Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
 ### For history with up/down arrows, other useful vi/emacs keybindings
 
-Run:
+PSReadLine is included in Powershell Core 6. For older Powershells, run:
 
 	Install-Package PSReadLine
 
@@ -39,19 +45,33 @@ Run:
 
 	Install-Module -Name Recycle -Scope CurrentUser
 
+### T|o import your iterm
+
+You can import and tweak an `.itermcolors` file using (terminal.sexy)[https://terminal.sexy] 
+
+[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) can be used to apply a `.itermcolors` file to the windows console (which determines coloring for powershell, bash, and cmd). [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
+
+Run:
+
+	./colortool -b color-scheme.itermcolors
+
 ### For OpenSSH
 
-OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**
+OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**. 
 
 ### For OpenSSL
 
+Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work.
+
+Windows SSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
+
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
-The popular 'Shining Light' version is an unsigned binary downloaded over an insecure connection - I've offered to help and pay to fix this and the author has no intention of remedying this.
+The popular 'Shining Light' WIndows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
-These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about *nix. 
+These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about how "Unix is like DOS". Might be painful to hear but it's true. 
 
 `select` (also called `select-object`) - select the fields you want on an object
 

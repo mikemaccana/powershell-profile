@@ -58,8 +58,9 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 
 # Kinda like $EDITOR in nix
 # You may prefer eg 'subl' or 'code' or whatever else
+# --disable-gpu needed for https://github.com/Microsoft/vscode/issues/13612
 function edit {
-	& "code-insiders" -g @args
+	& "code-insiders" --disable-gpu -g @args
 }
 
 function subl {
@@ -82,6 +83,11 @@ function change-title([string]$newtitle) {
 # From http://stackoverflow.com/questions/7330187/how-to-find-the-windows-version-from-the-powershell-command-line
 function get-windows-build {
 	[Environment]::OSVersion
+}
+
+function disable-windows-search {
+	Set-Service wsearch -StartupType disabled
+	stop-service wsearch
 }
 
 # http://mohundro.com/blog/2009/03/31/quickly-extract-files-with-powershell/
@@ -467,4 +473,7 @@ function Private:yarn() {
 	}
 	& yarn $modifiedArgs
 }
+
+cd ~/Documents
+
 echo 'Mike profile loaded.'
