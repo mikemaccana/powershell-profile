@@ -47,7 +47,7 @@ Run:
 
 ### To import your iterm colors
 
-You can import and tweak an `.itermcolors` file using (terminal.sexy)[https://terminal.sexy] 
+You can import and tweak an `.itermcolors` file using [terminal.sexy](https://terminal.sexy) 
 
 [ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) can be used to apply a `.itermcolors` file to the windows console (which determines coloring for powershell, bash, and cmd). [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
 
