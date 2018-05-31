@@ -15,7 +15,7 @@ This is what I install on any Windows 10 box.
 
 ### Powershell 6 (also called Powershell Core 6)
 
-[Powershell Core 6 ](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6)] has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
+[Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
 ### For a decent, tabbed terminal
 
@@ -23,7 +23,7 @@ Windows 10 build 1766 (run `[Environment]::OSVersion` to see your build) include
 
 <img src="windows-console.png"/>
 
-The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quicly start another tab of the same type as the current one should come in future. 
+The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quickly start another tab of the same type as the current one should come in future. 
 
 If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
 
@@ -47,7 +47,7 @@ Run:
 
 ### To import your iterm colors
 
-You can import and tweak an `.itermcolors` file using (terminal.sexy)[https://terminal.sexy] 
+You can import and tweak an `.itermcolors` file using [terminal.sexy](https://terminal.sexy) 
 
 [ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) can be used to apply a `.itermcolors` file to the windows console (which determines coloring for powershell, bash, and cmd). [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
 
@@ -59,11 +59,11 @@ Run:
 
 OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**. 
 
-### For OpenSSL
+### For OpenSSL (if you need it)
 
 Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work. Unless you do the same you probably don't need OpenSSL. 
 
-Windows OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
+The Windows version of OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
 
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
@@ -81,7 +81,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `where` - choose items matching some criteria.
 
-## Included Unixlike commands
+## Included Unixlike commands in this profile
 
 `extact-archive` - extracts files using 7zip. Output dir is name of file minus extension. Handles `.tar.gz`'s without creating temp files.
 
