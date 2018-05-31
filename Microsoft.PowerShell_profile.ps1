@@ -79,12 +79,12 @@ function edit-powershell-profile {
 	edit $profile
 }
 
-function reload-powershell-profile {
+function update-powershell-profile {
 	& $profile
 }
 
 # https://blogs.technet.microsoft.com/heyscriptingguy/2012/12/30/powertip-change-the-powershell-console-title
-function change-title([string]$newtitle) {
+function set-title([string]$newtitle) {
 	$host.ui.RawUI.WindowTitle = $newtitle + ' – ' + $host.ui.RawUI.WindowTitle
 }
 
@@ -100,7 +100,7 @@ function disable-windows-search {
 
 # http://mohundro.com/blog/2009/03/31/quickly-extract-files-with-powershell/
 # and https://stackoverflow.com/questions/1359793/programmatically-extract-tar-gz-in-a-single-step-on-windows-with-7zip
-function extract-archive([string]$file, [string]$outputDir = '') {
+function expand-archive([string]$file, [string]$outputDir = '') {
 	if (-not (Test-Path $file)) {
 		$file = Resolve-Path $file
 	}
@@ -127,7 +127,9 @@ function extract-archive([string]$file, [string]$outputDir = '') {
 	7z x "-o$outputDir" $file	
 }
 
-function findfile($name) {
+set-alias unzip expand-archive
+
+function find-file($name) {
 	get-childitem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach-object {
 		$place_path = $_.directory
 		write-output "${place_path}\${_}"
@@ -138,24 +140,25 @@ function get-path {
 	($Env:Path).Split(";")
 }
 
-function git-show-ignored {
+function get-git-ignored {
 	git ls-files . --ignored --exclude-standard --others
 }
 
-function git-show-untracked {
+function get-git-untracked {
 	git ls-files . --exclude-standard --others
 }
 
 # https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
-function prompt {
+function set-prompt {
 	$realLASTEXITCODE = $LASTEXITCODE
-	Write-Host $(Truncate-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
+	Write-Host $(limit-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
 	Write-Host " $" -NoNewline
 	$global:LASTEXITCODE = $realLASTEXITCODE
 	Return " "
 }
 
-function Truncate-HomeDirectory($Path) {
+# Truncate homedir to ~
+function limit-HomeDirectory($Path) {
 	$Path.Replace("$home", "~")
 }
 
@@ -167,12 +170,12 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
 function gg {
 	# Replace file:linenumber:content with file:linenumber:content
 	# so you can just click the file:linenumber and go straight there.
-	& git grep -n -i @args | % { $_ -replace '(\d+):','$1 ' }  
+	& git grep -n -i @args | foreach-object { $_ -replace '(\d+):','$1 ' }  
 }
 
 Set-Alias trash Remove-ItemSafely
 function open($file) {
-	ii $file
+	invoke-item $file
 }
 
 
@@ -189,7 +192,7 @@ function explorer {
 }
 
 function settings {
-	start ms-setttings:
+	start-process ms-setttings:
 }
 
 function stree {
@@ -208,8 +211,8 @@ function stree {
 function fuser($relativeFile){
 	$file = Resolve-Path $relativeFile
 	write-output "Looking for processes using $file"
-	foreach-object ( $Process in (Get-Process)) {
-		foreach-object ( $Module in $Process.Modules) {
+	foreach ( $Process in (Get-Process)) {
+		foreach ( $Module in $Process.Modules) {
 			if ( $Module.FileName -like "$file*" ) {
 				$Process | select-object id, path
 			}
@@ -221,6 +224,8 @@ function fuser($relativeFile){
 Unblock-File $home\scripts\whois.ps1
 . $home\scripts\whois.ps1
 
+Unblock-File $home\Documents\powershell-dotfiles\openssl.ps1
+. "$home\Documents\powershell-dotfiles\openssl.ps1"
 
 function uptime {
 	Get-CimInstance Win32_OperatingSystem | select-object csname, @{LABEL='LastBootUpTime';
@@ -234,17 +239,15 @@ function get-serial-number {
 function df {
 	get-volume
 }
-function unzip {
-	extract-archive
-}
-
 function sed($file, $find, $replace){
 	(Get-Content $file).replace("$find", $replace) | Set-Content $file
 }
-function sed-recursive($filePattern, $find, $replace) {
+
+# Like a recursive sed
+function edit-recursive($filePattern, $find, $replace) {
 	$files = get-childitem . "$filePattern" -rec # -Exclude
 	write-output $files
-	foreach-object ($file in $files) {
+	foreach ($file in $files) {
 		(Get-Content $file.PSPath) |
 		Foreach-Object { $_ -replace "$find", "$replace" } |
 		Set-Content $file.PSPath
@@ -258,17 +261,17 @@ function grep($regex, $dir) {
 	$input | select-object-string $regex
 }
 function grepv($regex) {
-	$input | ? { !$_.Contains($regex) }
+	$input | where-object { !$_.Contains($regex) }
 }
 
 function show-links($dir){
-	get-childitem $dir | ?{$_.LinkType} | select-object FullName,LinkType,Target
+	get-childitem $dir | where-object {$_.LinkType} | select-object FullName,LinkType,Target
 }
 function which($name) {
 	Get-Command $name | Select-Object -ExpandProperty Definition
 }
 function cut(){
-	foreach-object ($part in $input) {
+	foreach ($part in $input) {
 		$line = $part.ToString();
 		$MaxLength = [System.Math]::Min(200, $line.Length)
 		$line.subString(0, $MaxLength)
@@ -281,11 +284,11 @@ function export($name, $value) {
 }
 
 function pkill($name) {
-	ps $name -ErrorAction SilentlyContinue | kill
+	get-process $name -ErrorAction SilentlyContinue | stop-process
 }
 
 function pgrep($name) {
-	ps $name
+	get-process $name
 }
 function touch($file) {
 	New-Item $file -type file
@@ -296,14 +299,12 @@ function ln($target, $link) {
 	New-Item -ItemType SymbolicLink -Path $link -Value $target
 }
 
-function make-link {
-	ln
-}
+set-alias new-link ln
 
 function Private:file($file) {
 	$extension = (Get-Item $file).Extension
-	$fileType = (gp "Registry::HKEY_Classes_root\$extension")."(default)"
-	$description =  (gp "Registry::HKEY_Classes_root\$fileType")."(default)"
+	$fileType = (get-itemproperty "Registry::HKEY_Classes_root\$extension")."(default)"
+	$description =  (get-itemproperty "Registry::HKEY_Classes_root\$fileType")."(default)"
 	write-output $description
 }
 
@@ -315,13 +316,13 @@ function sudo(){
 # https://gist.github.com/aroben/5542538
 function pstree {
 	$ProcessesById = @{}
-	foreach-object ($Process in (Get-WMIObject -Class Win32_Process)) {
+	foreach ($Process in (Get-WMIObject -Class Win32_Process)) {
 		$ProcessesById[$Process.ProcessId] = $Process
 	}
 
 	$ProcessesWithoutParents = @()
 	$ProcessesByParent = @{}
-	foreach-object ($Pair in $ProcessesById.GetEnumerator()) {
+	foreach ($Pair in $ProcessesById.GetEnumerator()) {
 		$Process = $Pair.Value
 
 		if (($Process.ParentProcessId -eq 0) -or !$ProcessesById.ContainsKey($Process.ParentProcessId)) {
@@ -347,7 +348,7 @@ function pstree {
 		}
 
 		Write-Output ("{0,6}{1} {2}" -f $Process.ProcessId, $Indent, $Description)
-		foreach-object ($Child in ($ProcessesByParent[$ProcessId] | Sort-Object CreationDate)) {
+		foreach ($Child in ($ProcessesByParent[$ProcessId] | Sort-Object CreationDate)) {
 			Show-ProcessTree $Child.ProcessId ($IndentLevel + 4)
 		}
 	}
@@ -355,127 +356,15 @@ function pstree {
 	Write-Output ("{0,6} {1}" -f "PID", "Command Line")
 	Write-Output ("{0,6} {1}" -f "---", "------------")
 
-	foreach-object ($Process in ($ProcessesWithoutParents | Sort-Object CreationDate)) {
+	foreach ($Process in ($ProcessesWithoutParents | Sort-Object CreationDate)) {
 		Show-ProcessTree $Process.ProcessId 0
 	}
-}
-
-# From https://certsimple.com/blog/openssl-shortcuts
-function write-iew-certificate ($file) {
-	write-output "openssl x509 -text -noout -in $file"
-	openssl x509 -text -noout -in $file
-}
-
-function write-iew-csr ($file) {
-	write-output "openssl req -text -noout -verify -in $file"
-	openssl req -text -noout -verify -in $file
-}
-
-function write-iew-rsa-key ($file) {
-	write-output openssl rsa -check -in $file
-	openssl rsa -check -in $file
-}
-
-function write-iew-rsa-key ($file) {
-	write-output "openssl rsa -check -in $file"
-	openssl rsa -check -in $file
-}
-
-function write-iew-ecc-key ($file) {
-	write-output "openssl ec -check -in $file"
-	openssl ec -check -in $file
-}
-
-function write-iew-pkcs12 ($file) {
-	write-output "openssl pkcs12 -info -in $file"
-	openssl pkcs12 -info -in $file
-}
-
-# Connecting to a server (Ctrl C exits)
-function openssl-client ($server) {
-	write-output "openssl s_client -status -connect $server:443"
-	openssl s_client -status -connect $server:443
-}
-
-# Convert PEM private key, PEM certificate and PEM CA certificate (used by nginx, Apache, and other openssl apps)
-# to a PKCS12 file (typically for use with Windows or Tomcat)
-function openssl-convert-pem-to-p12 ($key, $cert, $cacert, $output) {
-	write-output "openssl pkcs12 -export -inkey $key -in $cert -certfile $cacert -out $output"
-	openssl pkcs12 -export -inkey $key -in $cert -certfile $cacert -out $output
-}
-
-# Convert a PKCS12 file to PEM
-function openssl-convert-p12-to-pem ($p12file, $pem) {
-	write-output "openssl pkcs12 -nodes -in $p12file -out $pemfile"
-	openssl pkcs12 -nodes -in $p12file -out $pemfile
-}
-
-# Convert a crt to a pem file
-function openssl-crt-to-pem($crtfile) {
-	write-output "openssl x509 -in $crtfile -out $basename.pem -outform PEM"
-	openssl x509 -in $crtfile -out $basename.pem -outform PEM
-}
-
-# Check the modulus of an RSA certificate (to see if it matches a key)
-function openssl-check-rsa-certificate-modulus {
-	write-output "openssl x509 -noout -modulus -in "${1}" | shasum -a 256"
-	openssl x509 -noout -modulus -in "${1}" | shasum -a 256
-}
-
-# Check the public point value of an ECDSA certificate (to see if it matches a key)
-# See https://security.stackexchange.com/questions/73127/how-can-you-check-if-a-private-key-and-certificate-match-in-openssl-with-ecdsa
-function openssl-check-ecdsa-certificate-ppv-and-curve {
-	write-output "openssl x509 -in "${1}" -pubkey | shasum -a 256"
-	openssl x509 -noout -pubkey -in "${1}" | shasum -a 256
-}
-
-# Check the modulus of an RSA key (to see if it matches a certificate)
-function openssl-check-rsa-key-modulus {
-	write-output "openssl rsa -noout -modulus -in "${1}" | shasum -a 256"
-	openssl rsa -noout -modulus -in "${1}" | shasum -a 256
-}
-
-# Check the public point value of an ECDSA key (to see if it matches a certificate)
-# See https://security.stackexchange.com/questions/73127/how-can-you-check-if-a-private-key-and-certificate-match-in-openssl-with-ecdsa
-function openssl-check-ecc-key-ppv-and-curve {
-	write-output "openssl ec -in "${1}" -pubout | shasum -a 256"openssl ec -in key -pubout
-	openssl pkey -pubout -in "${1}" | shasum -a 256
-}
-
-# Check the modulus of a certificate request
-function openssl-check-rsa-csr-modulus {
-	write-output openssl req -noout -modulus -in "${1}" | shasum -a 256
-	openssl req -noout -modulus -in "${1}" | shasum -a 256
-}
-
-# Encrypt a file (because zip crypto isn't secure)
-function openssl-encrypt () {
-	write-output openssl aes-256-cbc -in "${1}" -out "${2}"
-	openssl aes-256-cbc -in "${1}" -out "${2}"
-}
-
-# Decrypt a file
-function openssl-decrypt () {
-	write-output aes-256-cbc -d -in "${1}" -out "${2}"
-	openssl aes-256-cbc -d -in "${1}" -out "${2}"
-}
-
-# For setting up public key pinning
-function openssl-key-to-hpkp-pin() {
-	write-output openssl rsa -in "${1}" -outform der -pubout | openssl dgst -sha256 -binary | openssl enc -base64
-	openssl rsa -in "${1}" -outform der -pubout | openssl dgst -sha256 -binary | openssl enc -base64
-}
-
-# For setting up public key pinning (directly from the site)
-function openssl-website-to-hpkp-pin() {
-	write-output openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
-	openssl s_client -connect "${1}":443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
 }
 
 # Scope private do we don't call yarn recursively!
 function Private:yarn() {
 	$modifiedArgs = @()
-	foreach-object ( $arg in $args ) {
+	foreach ( $arg in $args ) {
 		# yarn broke 'get-childitem'
 		if ( $arg -cmatch '^get-childitem$' ) {
 			$arg = 'list'
@@ -490,6 +379,6 @@ function Private:yarn() {
 	& yarn $modifiedArgs
 }
 
-cd ~/Documents
+set-location ~/Documents
 
 write-output 'Mike profile loaded.'
