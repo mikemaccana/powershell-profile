@@ -1,5 +1,8 @@
 # Install-Module Find-String
 
+# Note foreach can be a keyword or an alias to foreach-object
+# https://stackoverflow.com/questions/29148462/difference-between-foreach-and-foreach-object-in-powershell
+
 # Set-ExecutionPolicy unrestricted
 
 Add-PathVariable "${env:ProgramFiles}\OpenSSH"
@@ -10,7 +13,7 @@ Add-PathVariable "${env:ProgramFiles}\wtrace"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
-# Add relative node_modules\.bin to PATH - this keeps updating as we `cd`
+# Add relative node_modules\.bin to PATH - this keeget-process updating as we `cd`
 Add-PathVariable '.\node_modules\.bin'
 
 # Various bits for openssl
@@ -136,6 +139,8 @@ function find-file($name) {
 	}
 }
 
+set-alias find find-file
+
 function get-path {
 	($Env:Path).Split(";")
 }
@@ -148,8 +153,13 @@ function get-git-untracked {
 	git ls-files . --exclude-standard --others
 }
 
+# Truncate homedir to ~
+function limit-HomeDirectory($Path) {
+	$Path.Replace("$home", "~")
+}
+# Must be called 'prompt' to be used by pwsh 
 # https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
-function set-prompt {
+function prompt {
 	$realLASTEXITCODE = $LASTEXITCODE
 	Write-Host $(limit-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
 	Write-Host " $" -NoNewline
@@ -157,10 +167,6 @@ function set-prompt {
 	Return " "
 }
 
-# Truncate homedir to ~
-function limit-HomeDirectory($Path) {
-	$Path.Replace("$home", "~")
-}
 
 function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.DirectoryInfo]$Parent) {
 	write-host $Child.FullName | select-object '*'
@@ -255,10 +261,10 @@ function edit-recursive($filePattern, $find, $replace) {
 }
 function grep($regex, $dir) {
 	if ( $dir ) {
-		get-childitem $dir | select-object-string $regex
+		get-childitem $dir | select-string $regex
 		return
 	}
-	$input | select-object-string $regex
+	$input | select-string $regex
 }
 function grepv($regex) {
 	$input | where-object { !$_.Contains($regex) }
