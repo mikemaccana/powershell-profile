@@ -79,131 +79,85 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `get-itemproperty` - show the properties of registry objects (`ls` only shows children)
 
-`where` - choose items matching some criteria.
+`where` (also called `where-object`) - choose items matching some criteria.
 
-## Included Unixlike commands in this profile
+## Included commands
 
-`extact-archive` - extracts files using 7zip. Output dir is name of file minus extension. Handles `.tar.gz`'s without creating temp files.
+### Stuff that should be there out of the box
 
-`findfile` - like  `find -name`
+`edit` - edits a file (using VSCode insiders, but modify as you please)
+`open` - open a file using associated app
+`settings` - the Windows Settings app
+`explorer` - file explorer
 
-`get-path` - show $PATH as a series of strings.
+### File management
 
-`prompt` - neat Unix-like prompt
+`expand-archive` - also called `unzip`
+`find-file`
+`show-links`
 
-`whois` - show domain contact info
+## OS management
 
-`uptime` - show time since last boot up
+`reboot`
+`get-windows-build` 
+`disable-windows-search` - Windows Search Indexer kills interactive IO and hasn't been fixed for 15 years. 
+`get-serial-number`
 
-`fuser` - show the processes using a file
+### Unix like commands
 
-`df` - disk space free
+`grep`
+`grepv`
+`df`
+`sed`
+`edit-recursive`
+`stree`
+`fuser`
+`pkill`
+`pgrep`
+`touch`
+`file`
+`sudo` - note command after `sudo` must be quoted
+`uptime`
+`cut`
+`export`
+`ln`
+`pstree`
+`which`
+`find`
 
-`cut` - cut particular characters from lines
+## Powershell stuff
 
-`sed` - replace a regex with a string. 
-
-`sed-recursive` - stream edit recursively. 
-
-`grep` - file lines matching a regular expression
-
-`grepv` - aka `grep -v`
-
-`which` - exactly like the Linux command
-
-`export` - sets an environment variable
-
-`pkill` - exactly like the Linux command
-
-`pgrep` - exactly like the Linux command
-
-`touch` - make a blank file
-
-`file` - show a file's type description
-
-`make-link` - Make a symlink
-
-`sudo` -  Note you'll want to quote the command, eg 
-
-	sudo "mkdir 'C:\Program Files\openssl'"
-
-`pstree` - like `pstree` or `ps -f` on a Linux or Unix box.
-
-`unzip`
-
-## Included Windows-specific commands
-
+`prompt` - a nice Unixlike prompt with ~ style truncation for the home directory
 `edit-powershell-profile`
+`update-powershell-profile` - re-run your profile
+`set-title` - set the window title
+`get-path` - get the PATH, one item per line
 
-`reload-powershell-profile`
+## Development
 
-`trash` - move a file or folder to the recycle bun
+`get-git-ignored`
+`get-git-untracked`
+`gg` - A `git grep` Alias
+`yarn` - Yarn wrapper with `yarn ls` re-added, since I hate typing `yarn list`
 
-`change-title` - change the title of the terminal app
+### Crypto
 
-`get-windows-build` - get the full Windows build number (for reporting bugs to vendors)
-
-## Included Dev Tools
-
-`subl` - Sublime Text
-
-`explorer` - Windows Explorer
-
-`stree` - SourceTree
-
-`open` - open a file with the program Windows uses for that file type
-
-## Included Git shortcuts
-
-`git-show-ignored` - show ignored files
-
-`git-show-untracked` - show untracked files
-
-`gg` - git grep
-
-## Crypto
-
-### Viewing keys / certs / CSRs 
-
-`openssl-view-certificate`
-
-`openssl-view-csr`
-
-`openssl-view-rsa-key`
-
-`openssl-view-ecc-key`
-
-`openssl-view-pkcs12`
-
-`openssl-convert-p12-to-pem`
-
-### Checking if keys / certs / CSRs match
-
-`openssl-check-rsa-key-modulus`
-
-`openssl-check-rsa-certificate-modulus`
-
-`openssl-check-rsa-csr-modulus`
-
-`openssl-check-ecc-key-ppv-and-curve`
-
-`openssl-check-ecdsa-certificate-ppv-and-curve`
-
-### Tools
-
-`openssl-client`
-
-`openssl-encrypt`
-
-`openssl-decrypt`
-
-`openssl-key-to-hpkp-pin`
-
-`openssl-website-to-hpkp-pin`
-
-### Format conversion
-
-`openssl-convert-pem-to-p12`
-
-`openssl-crt-to-pem`
-
+`read-certificate`
+`read-csr`
+`read-rsa-key`
+`read-rsa-key`
+`read-ecc-key`
+`read-pkcs12`
+`test-openssl-client`
+`convert-pem-to-p12`
+`convert-p12-to-pem`
+`convert-crt-to-pem`
+`show-rsa-certificate-modulus`
+`show-ecdsa-certificate-ppv-and-curve`
+`show-rsa-key-modulus`
+`show-ecc-key-ppv-and-curve`
+`show-rsa-csr-modulus`
+`protect-file`
+`unprotect-file`
+`convert-key-to-hpkp-pin`
+`convert-website-to-hpkp-pin`
