@@ -86,78 +86,132 @@ These come with powershell. If you don't know them you're the equivalent of some
 ### Stuff that should be there out of the box
 
 `edit` - edits a file (using VSCode insiders, but modify as you please)
+
 `open` - open a file using associated app
+
 `settings` - the Windows Settings app
+
 `explorer` - file explorer
 
 ### File management
 
 `expand-archive` - also called `unzip`
+
 `find-file`
+
 `show-links`
 
 ## OS management
 
 `reboot`
+
 `get-windows-build` 
+
 `disable-windows-search` - Windows Search Indexer kills interactive IO and hasn't been fixed for 15 years. 
+
 `get-serial-number`
 
 ### Unix like commands
 
 `grep`
+
 `grepv`
+
 `df`
+
 `sed`
+
 `edit-recursive`
+
 `stree`
+
 `fuser`
+
 `pkill`
+
 `pgrep`
+
 `touch`
+
 `file`
+
 `sudo` - note command after `sudo` must be quoted
+
 `uptime`
+
 `cut`
+
 `export`
+
 `ln`
+
 `pstree`
+
 `which`
+
 `find`
 
 ## Powershell stuff
 
+
 `prompt` - a nice Unixlike prompt with ~ style truncation for the home directory
+
 `edit-powershell-profile`
+
 `update-powershell-profile` - re-run your profile
+
 `set-title` - set the window title
+
 `get-path` - get the PATH, one item per line
 
 ## Development
 
+
 `get-git-ignored`
+
 `get-git-untracked`
+
 `gg` - A `git grep` Alias
+
 `yarn` - Yarn wrapper with `yarn ls` re-added, since I hate typing `yarn list`
 
 ### Crypto
 
+
 `read-certificate`
+
 `read-csr`
+
 `read-rsa-key`
+
 `read-rsa-key`
+
 `read-ecc-key`
+
 `read-pkcs12`
+
 `test-openssl-client`
+
 `convert-pem-to-p12`
+
 `convert-p12-to-pem`
+
 `convert-crt-to-pem`
+
 `show-rsa-certificate-modulus`
+
 `show-ecdsa-certificate-ppv-and-curve`
+
 `show-rsa-key-modulus`
+
 `show-ecc-key-ppv-and-curve`
+
 `show-rsa-csr-modulus`
+
 `protect-file`
+
 `unprotect-file`
+
 `convert-key-to-hpkp-pin`
+
 `convert-website-to-hpkp-pin`
