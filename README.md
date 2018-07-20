@@ -25,7 +25,7 @@ Future builds of Windows will have Sets - which provides a tabbed terminal out o
 
 In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal works the best with the fewest bugs.
 
-Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise (cmder)[http://cmder.net/] promises a lot but is just ConEmu and some additional things you might not necessarily want.
+Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise [cmder](http://cmder.net/) promises a lot but is just ConEmu and some additional things you might not necessarily want.
 
 ### For 'less' and a bunch of other useful stuff
 
