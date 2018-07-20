@@ -71,7 +71,7 @@ The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded ove
 
 ### For host, dig and other DNS tools
 
-Download [Bind 9 for Windows](https://www.isc.org/downloads/)
+Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. 
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
