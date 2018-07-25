@@ -25,7 +25,18 @@ Future builds of Windows will have Sets - which provides a tabbed terminal out o
 
 In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal works the best with the fewest bugs.
 
-Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise [cmder](http://cmder.net/) promises a lot but is just ConEmu and some additional things you might not necessarily want.
+Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed.
+
+#### Terminal apps that don't yet work on Windows
+
+The apps below all plan on having WIndows support ion future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
+
+[Hyper](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
+
+[Upterm](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
+)
+
+[Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
 
 ### For 'less' and a bunch of other useful stuff
 
