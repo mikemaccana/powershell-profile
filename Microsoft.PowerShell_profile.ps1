@@ -22,7 +22,7 @@ Add-PathVariable '.\node_modules\.bin'
 
 # $env:NODE_PATH = "C:\Users\mike\AppData\Roaming\npm"
 
-
+$profileDir = (get-item $profile).directory.fullname;
 
 Import-Module PSReadLine
 # Note PSReadLine uses vi keybindings by default. If you want emacs (default on Linux)
@@ -233,8 +233,8 @@ function fuser($relativeFile){
 Unblock-File $home\scripts\whois.ps1
 . $home\scripts\whois.ps1
 
-Unblock-File $home\Documents\powershell-dotfiles\openssl.ps1
-. "$home\Documents\powershell-dotfiles\openssl.ps1"
+Unblock-File $profileDir\openssl.ps1
+. "$profileDir\openssl.ps1"
 
 function uptime {
 	Get-CimInstance Win32_OperatingSystem | select-object csname, @{LABEL='LastBootUpTime';
