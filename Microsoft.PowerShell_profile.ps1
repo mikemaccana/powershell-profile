@@ -372,6 +372,11 @@ function pstree {
 	}
 }
 
+# Scope private do we don't call mocha recursively!
+function Private:mocha() {
+	mocha --ui tdd --bail --exit
+}
+
 # Scope private do we don't call yarn recursively!
 function Private:yarn() {
 	$modifiedArgs = @()
