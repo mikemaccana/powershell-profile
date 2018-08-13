@@ -7,8 +7,6 @@
 
 Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
-Add-PathVariable "${env:ProgramFiles}\7-Zip"
-Add-PathVariable "${env:ProgramFiles}\wtrace"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
