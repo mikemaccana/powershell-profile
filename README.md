@@ -17,6 +17,8 @@ This is what I install on any Windows 10 box.
 
 [Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
+Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+
 ### For a decent, tabbed terminal
 
 Future builds of Windows will have Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
@@ -44,16 +46,10 @@ Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
 	Install-Module Pscx -Scope CurrentUser
 
-### For history with up/down arrows, other useful vi/emacs keybindings
-
-PSReadLine is included in Powershell Core 6. For older Powershells, run:
-
-	Install-Package PSReadLine
-
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
 Run:
-
+        Set-PSRepository -name PSGallery -InstallationPolicy Trusted
 	Install-Module -Name Recycle -Scope CurrentUser
 
 ### To import your iterm colors
