@@ -5,7 +5,6 @@
 
 # Set-ExecutionPolicy unrestricted
 
-Add-PathVariable "${env:ProgramFiles}\OpenSSH"
 Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\7-Zip"
