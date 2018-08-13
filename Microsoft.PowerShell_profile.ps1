@@ -66,6 +66,10 @@ function edit {
 	& "code" --disable-gpu -g @args
 }
 
+# From https://serverfault.com/questions/95431/in-a-powershell-script-how-can-i-check-if-im-running-with-administrator-privil#97599
+function Test-Administrator  {  
+	$user = [Security.Principal.WindowsIdentity]::GetCurrent();
+	(New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
 
 # For git rebasing
