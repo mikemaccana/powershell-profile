@@ -1,4 +1,4 @@
-# Install-Module Find-String
+﻿# Install-Module Find-String
 
 # Note foreach can be a keyword or an alias to foreach-object
 # https://stackoverflow.com/questions/29148462/difference-between-foreach-and-foreach-object-in-powershell
@@ -63,7 +63,9 @@ Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 # You may prefer eg 'subl' or 'code' or whatever else
 # --disable-gpu needed for https://github.com/Microsoft/vscode/issues/13612
 function edit {
-	& "code-insiders" --disable-gpu -g @args
+	& "code" --disable-gpu -g @args
+}
+
 }
 
 # For git rebasing
