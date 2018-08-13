@@ -93,6 +93,8 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `explorer` - file explorer
 
+`sourcetree` - SourceTree
+
 ### File management
 
 `expand-archive` - also called `unzip`
@@ -121,9 +123,7 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `sed`
 
-`edit-recursive`
-
-`stree`
+`edit-recursive` - `sed` but recursive
 
 `fuser`
 
@@ -165,7 +165,6 @@ These come with powershell. If you don't know them you're the equivalent of some
 `get-path` - get the PATH, one item per line
 
 ## Development
-
 
 `get-git-ignored`
 
