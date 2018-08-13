@@ -40,16 +40,23 @@ The apps below all plan on having WIndows support ion future, but don't yet prop
 
 [Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
 
+### Trust PSGallery
+
+To allow you to install items without further prompts:
+
+	Set-PSRepository -name PSGallery -InstallationPolicy Trusted
+
 ### For 'less' and a bunch of other useful stuff
 
 Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
-	Install-Module Pscx -Scope CurrentUser
+	Install-Module Pscx -Scope CurrentUser -AllowClobber
+	
+AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)	
 
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
 Run:
-        Set-PSRepository -name PSGallery -InstallationPolicy Trusted
 	Install-Module -Name Recycle -Scope CurrentUser
 
 ### To import your iterm colors
