@@ -17,32 +17,46 @@ This is what I install on any Windows 10 box.
 
 [Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
+Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+
 ### For a decent, tabbed terminal
 
-Windows 10 build 1766 (run `[Environment]::OSVersion` to see your build) includes Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
+Future builds of Windows will have Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
 
 <img src="windows-console.png"/>
 
-The process isn't ideal (you start a tab, then pick what app to run each time from 'Search the web and Windows') but Microsoft are [still working on Sets](https://github.com/Microsoft/console/issues/49) and a way to quickly start another tab of the same type as the current one should come in future. 
+In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal works the best with the fewest bugs.
 
-If you have an older build of Windows, [ConEmu](https://conemu.github.io/) is your best bet. [Hyper](https://hyper.is/) may be promising in future but [currently has issues with Powershell](https://github.com/zeit/hyper/issues/1121). Likewise 
+Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed.
+
+#### Terminal apps that don't yet work on Windows
+
+The apps below all plan on having WIndows support ion future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
+
+[Hyper](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
+
+[Upterm](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
+)
+
+[Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
+
+### Trust PSGallery
+
+To allow you to install items without further prompts:
+
+	Set-PSRepository -name PSGallery -InstallationPolicy Trusted
 
 ### For 'less' and a bunch of other useful stuff
 
 Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
 
-	Install-Module Pscx -Scope CurrentUser
-
-### For history with up/down arrows, other useful vi/emacs keybindings
-
-PSReadLine is included in Powershell Core 6. For older Powershells, run:
-
-	Install-Package PSReadLine
+	Install-Module Pscx -Scope CurrentUser -AllowClobber
+	
+AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)	
 
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
 Run:
-
 	Install-Module -Name Recycle -Scope CurrentUser
 
 ### To import your iterm colors
@@ -68,6 +82,10 @@ The Windows version of OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
 The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
+
+### For host, dig and other DNS tools
+
+Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. 
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
