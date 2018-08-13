@@ -10,8 +10,10 @@ Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
-# Add relative node_modules\.bin to PATH - this keeget-process updating as we `cd`
+# Add relative node_modules\.bin to PATH 
 Add-PathVariable '.\node_modules\.bin'
+
+Add-PathVariable ${env:LOCALAPPDATA}\yarn\bin
 
 # Various bits for openssl
 # $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
