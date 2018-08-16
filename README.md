@@ -62,11 +62,13 @@ AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)
 Run:
 	Install-Module -Name Recycle -Scope CurrentUser
 
-### To import your iterm colors
+### To pick a color scheme / theme
 
-You can import and tweak an `.itermcolors` file using [terminal.sexy](https://terminal.sexy) 
+The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [https://iterm2colorschemes.com/](iTerm 2 color schemes).
 
-[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) can be used to apply a `.itermcolors` file to the windows console (which determines coloring for powershell, bash, and cmd). [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
+You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
+
+[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) applies the `.itermcolors` file - it determines coloring for powershell, bash, and cmd. [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
 
 Run:
 
