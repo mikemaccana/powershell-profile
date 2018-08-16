@@ -20,6 +20,8 @@ This is what I install on any Windows 10 box.
 
 Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
+After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
+
 ### For a decent, tabbed terminal
 
 Future builds of Windows will have Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
