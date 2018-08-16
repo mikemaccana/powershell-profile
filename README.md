@@ -40,6 +40,8 @@ The apps below all plan on having WIndows support ion future, but don't yet prop
 
 [Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
 
+[Alacritty](https://github.com/jwilm/alacritty) [is in the early stages of Windows support](https://github.com/jwilm/alacritty/issues/28)
+
 ### Trust PSGallery
 
 To allow you to install items without further prompts:
