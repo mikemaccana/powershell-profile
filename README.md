@@ -5,6 +5,7 @@ Heya. I've been using bash for about two decades before getting onto Powershell.
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
  - Implementations of a bunch of Unix commands
+ - Implementations of keybindings and other settings that mimic bash's defaults
  - The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
 
 The details below are minimal, but the names of most commands make things fairly obvious.
