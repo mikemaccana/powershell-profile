@@ -5,6 +5,7 @@ Heya. I've been using bash for about two decades before getting onto Powershell.
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
  - Implementations of a bunch of Unix commands
+ - Implementations of keybindings and other settings that mimic bash's defaults
  - The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
 
 The details below are minimal, but the names of most commands make things fairly obvious.
@@ -18,6 +19,8 @@ This is what I install on any Windows 10 box.
 [Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
 Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+
+After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
 ### For a decent, tabbed terminal
 
@@ -40,6 +43,8 @@ The apps below all plan on having WIndows support ion future, but don't yet prop
 
 [Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
 
+[Alacritty](https://github.com/jwilm/alacritty) [is in the early stages of Windows support](https://github.com/jwilm/alacritty/issues/28)
+
 ### Trust PSGallery
 
 To allow you to install items without further prompts:
@@ -59,11 +64,13 @@ AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)
 Run:
 	Install-Module -Name Recycle -Scope CurrentUser
 
-### To import your iterm colors
+### To pick a color scheme / theme
 
-You can import and tweak an `.itermcolors` file using [terminal.sexy](https://terminal.sexy) 
+The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [https://iterm2colorschemes.com/](iTerm 2 color schemes).
 
-[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) can be used to apply a `.itermcolors` file to the windows console (which determines coloring for powershell, bash, and cmd). [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
+You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
+
+[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) applies the `.itermcolors` file - it determines coloring for powershell, bash, and cmd. [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
 
 Run:
 
@@ -85,7 +92,7 @@ The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded ove
 
 ### For host, dig and other DNS tools
 
-Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. 
+Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. Select 'Tools Only'.
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
