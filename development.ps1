@@ -32,9 +32,8 @@ $env:EDITOR = 'code --wait'
 
 # Kinda like $EDITOR in nix
 # You may prefer eg 'subl' or 'code' or whatever else
-# --disable-gpu needed for https://github.com/Microsoft/vscode/issues/13612
 function edit {
-	& "code" --disable-gpu -g @args
+	& "code" -g @args
 }
 
 # I used to run Sublime so occasionally my fingers type it
