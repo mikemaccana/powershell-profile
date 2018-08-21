@@ -8,12 +8,18 @@
 Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\nodejs"
-Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
+
+
 
 # Add relative node_modules\.bin to PATH 
 Add-PathVariable '.\node_modules\.bin'
 
+# nodejs yarn bin folder
+Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 Add-PathVariable ${env:LOCALAPPDATA}\yarn\bin
+
+# nodejs npm bin folder
+# Add-PathVariable ${env:APPDATA}\npm
 
 # Various bits for openssl
 # $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
