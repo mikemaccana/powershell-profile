@@ -104,20 +104,14 @@ function stree {
 	& $SourceTreeFolder/SourceTree.exe -f .
 }
 
-Unblock-File $profileDir\openssl.ps1
-. "$profileDir\openssl.ps1"
-
-Unblock-File $profileDir\unix.ps1
-. "$profileDir\unix.ps1"
-
-Unblock-File $profileDir\development.ps1
-. "$profileDir\development.ps1"
-
-Unblock-File $profileDir\node.ps1
-. "$profileDir\node.ps1"
-
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
 #. "$profileDir\Get-NetworkStatistics.ps1"
+
+foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
+	Unblock-File $profileDir\$includeFile.ps1
+. "$profileDir\$includeFile.ps1"
+}
+
 
 set-location ~/Documents
 
