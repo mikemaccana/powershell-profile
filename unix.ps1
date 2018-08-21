@@ -73,6 +73,8 @@ function get-serial-number {
 function df {
 	get-volume
 }
+
+# Todo: look at 'edit-file' from PSCX
 function sed($file, $find, $replace){
 	(Get-Content $file).replace("$find", $replace) | Set-Content $file
 }

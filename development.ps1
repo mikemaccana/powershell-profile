@@ -31,6 +31,7 @@ function get-git-untracked {
 $env:EDITOR = 'code --wait'
 
 # Kinda like $EDITOR in nix
+# TODO: check out edit-file from PSCX
 # You may prefer eg 'subl' or 'code' or whatever else
 function edit {
 	& "code" -g @args
