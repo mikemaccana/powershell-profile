@@ -17,10 +17,6 @@ function Test-Administrator  {
 	(New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
 
-function reboot {
-	shutdown /r /t 0
-}
-
 function edit-powershell-profile {
 	edit $profile
 }

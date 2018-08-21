@@ -183,3 +183,9 @@ function find-file($name) {
 }
 
 set-alias find find-file
+
+function reboot {
+	shutdown /r /t 0
+}
+
+
