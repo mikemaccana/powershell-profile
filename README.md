@@ -4,9 +4,12 @@ Heya. I've been using bash for about two decades before getting onto Powershell.
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
- - Implementations of a bunch of Unix commands
- - Implementations of keybindings and other settings that mimic bash's defaults
- - The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell. 
+ - Implementations of keybindings and other settings that mimic bash's defaults. See [bash.ps1](bash.ps1)
+ - Implementations of a bunch of Unix commands. See [bash.ps1](bash.ps1)
+ - Useful commands for software development using git. See [git.ps1](git.ps1)
+ - Useful commands and setting for  node development. See [node.ps1](node.ps1)
+
+The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 
 The details below are minimal, but the names of most commands make things fairly obvious.
 
@@ -62,6 +65,7 @@ AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)
 ### For 'Remove-ItemSafely' - ie, trashing files from the command line
 
 Run:
+
 	Install-Module -Name Recycle -Scope CurrentUser
 
 ### To pick a color scheme / theme
