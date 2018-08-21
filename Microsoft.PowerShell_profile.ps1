@@ -75,11 +75,6 @@ function get-path {
 	($Env:Path).Split(";")
 }
 
-# Truncate homedir to ~
-function limit-HomeDirectory($Path) {
-	$Path.Replace("$home", "~")
-}
-
 function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.DirectoryInfo]$Parent) {
 	write-host $Child.FullName | select-object '*'
 	$Child.FullName.StartsWith($Parent.FullName)
@@ -102,6 +97,10 @@ function settings {
 function stree {
 	$SourceTreeFolder =  get-childitem ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
 	& $SourceTreeFolder/SourceTree.exe -f .
+}
+
+function get-serial-number {
+  Get-CimInstance -ClassName Win32_Bios | select-object serialnumber
 }
 
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71

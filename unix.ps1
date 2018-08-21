@@ -1,5 +1,10 @@
 Import-Module PSReadLine
 
+# Truncate homedir to ~
+function limit-HomeDirectory($Path) {
+	$Path.Replace("$home", "~")
+}
+
 # Note PSReadLine uses vi keybindings by default. If you want emacs enable:
 # Set-PSReadlineOption -EditMode Emacs
 # I like vi keybindings, so I just add my favourite one from emacs
@@ -64,10 +69,6 @@ Unblock-File $home\scripts\whois.ps1
 function uptime {
 	Get-CimInstance Win32_OperatingSystem | select-object csname, @{LABEL='LastBootUpTime';
 	EXPRESSION={$_.ConverttoDateTime($_.lastbootuptime)}}
-}
-
-function get-serial-number {
-  Get-CimInstance -ClassName Win32_Bios | select-object serialnumber
 }
 
 function df {
