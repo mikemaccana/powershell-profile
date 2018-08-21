@@ -26,7 +26,7 @@ Add-PathVariable ${env:LOCALAPPDATA}\yarn\bin
 # $env:RANDFILE="${env:LOCALAPPDATA}\openssl.rnd"
 
 # To use git supplied by SourceTree instead of the 'git for Windows' version
-# Add-PathVariable "${env:UserProfile}\AppData\Local\Atlassian\SourceTree\git_local\bin"
+# Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 
 # $env:NODE_PATH = "C:\Users\mike\AppData\Roaming\npm"
 
