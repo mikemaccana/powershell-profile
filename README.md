@@ -39,7 +39,7 @@ Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some cont
 
 #### Terminal apps that don't yet work on Windows
 
-The apps below all plan on having WIndows support ion future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
+The apps below all plan on having WIndows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
 
 [Hyper](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
 
