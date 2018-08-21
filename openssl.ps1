@@ -1,3 +1,9 @@
+Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
+
+# Various bits for openssl
+# $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
+# $env:RANDFILE="${env:LOCALAPPDATA}\openssl.rnd"
+
 # From https://certsimple.com/blog/openssl-shortcuts
 function read-certificate ($file) {
 	write-output "openssl x509 -text -noout -in $file"
