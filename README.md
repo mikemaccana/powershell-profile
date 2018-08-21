@@ -94,6 +94,12 @@ The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded ove
 
 Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. Select 'Tools Only'.
 
+### If you want a better 'select-string' (aka grep)
+
+The [Find-String](https://github.com/drmohundro/Find-String) module adds match highlighting and other fun things. For me the inbuilt `select-string` is enough.
+
+	Install-Module Find-String
+
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
 These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about how "Unix is like DOS". Might be painful to hear but it's true. 

@@ -1,6 +1,4 @@
-﻿# Install-Module Find-String
-
-# Note foreach can be a keyword or an alias to foreach-object
+﻿# Note foreach can be a keyword or an alias to foreach-object
 # https://stackoverflow.com/questions/29148462/difference-between-foreach-and-foreach-object-in-powershell
 
 # Set-ExecutionPolicy unrestricted
