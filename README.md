@@ -30,9 +30,10 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.e
 Future builds of Windows will have Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
 
 <img src="misc/windows-console.png"/>
-<img src="misc/windows-console-groupy.png"/>
 
-In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal works the best with the fewest bugs.
+In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal (with groupy) works the best with the fewest bugs.
+
+<img src="misc/windows-console-groupy.png"/>
 
 Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed.
 
