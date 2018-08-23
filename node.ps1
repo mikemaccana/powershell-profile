@@ -14,7 +14,7 @@ Add-PathVariable "${env:LOCALAPPDATA}\yarn\bin"
 
 # Scope private do we don't call mocha recursively!
 function Private:mocha() {
-	mocha --ui tdd --bail --exit
+	& node ..\..\node_modules\mocha\bin\mocha --ui tdd --bail
 }
 
 # Scope private do we don't call yarn recursively!
