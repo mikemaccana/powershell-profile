@@ -3,7 +3,7 @@
 
 # Set-ExecutionPolicy unrestricted
 
-$profileDir = (get-item $profile).directory.fullname;
+$profileDir = $PSScriptRoot;
 
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
 $MaximumHistoryCount = 10000
