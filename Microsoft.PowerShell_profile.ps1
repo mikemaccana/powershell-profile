@@ -111,7 +111,8 @@ foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
 . "$profileDir\$includeFile.ps1"
 }
 
+$documentsFolder = [Environment]::GetFolderPath("MyDocuments")
 
-set-location ~/Documents
+set-location $documentsFolder
 
 write-output 'Mike profile loaded.'
