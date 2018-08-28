@@ -3,6 +3,9 @@ Add-PathVariable "${env:ProgramFiles}\nodejs"
 # Add relative node_modules\.bin to PATH - this allows us to easily use local bin files and less things installed globally
 Add-PathVariable '.\node_modules\.bin'
 
+# Use git included with SourceTree
+Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
+
 # yarn bin folder
 # Disabled until https://github.com/yarnpkg/yarn/issues/6318 is fixed
 #Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
