@@ -63,8 +63,8 @@ function fuser($relativeFile){
 }
 
 # https://gallery.technet.microsoft.com/WHOIS-PowerShell-Function-ed69fde6
-Unblock-File $home\scripts\whois.ps1
-. $home\scripts\whois.ps1
+Unblock-File $PSScriptRoot\whois.ps1
+. $PSScriptRoot\whois.ps1
 
 function uptime {
 	Get-CimInstance Win32_OperatingSystem | select-object csname, @{LABEL='LastBootUpTime';
