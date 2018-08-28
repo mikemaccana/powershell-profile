@@ -4,11 +4,13 @@ Add-PathVariable "${env:ProgramFiles}\nodejs"
 Add-PathVariable '.\node_modules\.bin'
 
 # yarn bin folder
-Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
-Add-PathVariable "${env:LOCALAPPDATA}\yarn\bin"
+# Disabled until https://github.com/yarnpkg/yarn/issues/6318 is fixed
+#Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
+#Add-PathVariable "${env:LOCALAPPDATA}\yarn\bin"
 
-# npm bin folder
-# Add-PathVariable ${env:APPDATA}\npm
+# npm global bin folder
+Add-PathVariable ${env:APPDATA}\npm
+
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
 
