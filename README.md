@@ -106,6 +106,12 @@ The [Find-String](https://github.com/drmohundro/Find-String) module adds match h
 
 	Install-Module Find-String
 
+### If you use node
+
+Start [Powershell 5](https://github.com/felixrieseberg/windows-build-tools/issues/136) as admin and run:
+
+	npm install -g windows-build-tools
+
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
 These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about how "Unix is like DOS". Might be painful to hear but it's true. 

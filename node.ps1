@@ -11,6 +11,8 @@ Add-PathVariable '.\node_modules\.bin'
 # npm global bin folder
 Add-PathVariable ${env:APPDATA}\npm
 
+# Python is used to install 
+Add-PathVariable ${env:HOME}\.windows-build-tools\python27
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
 
