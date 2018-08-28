@@ -14,9 +14,10 @@ Add-PathVariable ${env:APPDATA}\npm
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
 
-# Scope private do we don't call mocha recursively!
+# We use a locally installed mocha rather than a global one
+# Scope private do we don't call mocha recursively (just in case there is one in path)
 function Private:mocha() {
-	& node ..\..\node_modules\mocha\bin\mocha --ui tdd --bail
+	& node ..\..\node_modules\mocha\bin\mocha --ui tdd --bail --exit
 }
 
 # Scope private do we don't call yarn recursively!
