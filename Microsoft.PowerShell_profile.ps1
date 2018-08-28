@@ -17,8 +17,9 @@ function Test-Administrator  {
 	(New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
 
+# Edit whole dir, so we can edit included files etc
 function edit-powershell-profile {
-	edit $profile
+	edit $profileDir
 }
 
 function update-powershell-profile {
