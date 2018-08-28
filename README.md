@@ -72,7 +72,7 @@ Run:
 
 ### To pick a color scheme / theme
 
-The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [https://iterm2colorschemes.com/](iTerm 2 color schemes).
+The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
 
 You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
@@ -104,7 +104,7 @@ Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip a
 
 The [Find-String](https://github.com/drmohundro/Find-String) module adds match highlighting and other fun things. For me the inbuilt `select-string` is enough.
 
-	Install-Module Find-String
+	Install-Module -Name Find-String -Scope CurrentUser
 
 ### If you use node
 
