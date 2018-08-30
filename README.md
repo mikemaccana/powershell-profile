@@ -4,11 +4,10 @@ Heya. I've been using bash for about two decades before getting onto Powershell.
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
 
- - Implementations of keybindings and other settings that mimic bash's defaults. See [bash.ps1](bash.ps1)
- - Implementations of a bunch of Unix commands. See [bash.ps1](bash.ps1)
+ - Implementations of keybindings and other settings that mimic bash's defaults, as wel las popular Unix commands. See [bash.ps1](bash.ps1)
  - Useful commands for software development using git. See [git.ps1](git.ps1)
  - Useful commands and settings for node development. See [node.ps1](node.ps1)
- - Useful commands for crypto, including converting between different crypto file types, checking if pruvate keys and certs match, etc. See [openssl.ps1](openssl.ps1)
+ - Useful commands for crypto, including converting between different crypto file types, checking if private keys and certs match, etc. See [openssl.ps1](openssl.ps1)
  
 The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 
