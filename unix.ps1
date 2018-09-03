@@ -180,12 +180,12 @@ function pstree {
 
 function find-file($name) {
 	get-childitem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach-object {
-		$place_path = $_.directory
-		write-output "${place_path}\${_}"
+		write-output = $PSItem.FullName
 	}
 }
 
 set-alias find find-file
+set-alias find-name find-file
 
 function reboot {
 	shutdown /r /t 0
