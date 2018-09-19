@@ -23,7 +23,7 @@ Add-PathVariable $HOME\.windows-build-tools\python27
 # We use a locally installed mocha rather than a global one
 # Scope private do we don't call mocha recursively (just in case there is one in path)
 function Private:mocha() {
-	& node ..\..\node_modules\mocha\bin\mocha --ui tdd --bail --exit
+	& node ..\..\node_modules\mocha\bin\mocha --ui tdd --bail --exit $args
 }
 
 # Scope private do we don't call yarn recursively!
