@@ -5,6 +5,9 @@ function limit-HomeDirectory($Path) {
 	$Path.Replace("$home", "~")
 }
 
+# Just a couple of things (sed, to interpret sed scripts) from http://unxutils.sourceforge.net/
+Add-PathVariable "${env:ProgramFiles}\UnxUtils"
+
 # Note PSReadLine uses vi keybindings by default. If you want emacs enable:
 # Set-PSReadlineOption -EditMode Emacs
 # I like vi keybindings, so I just add my favourite one from emacs
@@ -76,9 +79,10 @@ function df {
 }
 
 # Todo: look at 'edit-file' from PSCX
-function sed($file, $find, $replace){
-	(Get-Content $file).replace("$find", $replace) | Set-Content $file
-}
+# Repalced with real 'sed' to interpret sed scripts
+# function sed($file, $find, $replace){
+# 	(Get-Content $file).replace("$find", $replace) | Set-Content $file
+# }
 
 # Like a recursive sed
 function edit-recursive($filePattern, $find, $replace) {
