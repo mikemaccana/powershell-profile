@@ -31,10 +31,9 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.e
 
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) works great, and is currently my best recommendation for terminals. It's easily customisable and just works.
+ - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is currently my best recommendation for terminals. It's easily customisable and just works.
  - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature. 
- - [**ConEmu**](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). 
-<img src="misc/windows-console.png"/>
+ - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). 
 
 #### Terminal apps that don't yet work on Windows
 
