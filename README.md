@@ -94,8 +94,6 @@ The Windows version of OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if
 
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
 
-The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
-
 ### For host, dig and other DNS tools
 
 Download [Bind 9 for Windows](https://www.isc.org/downloads/). Extract the zip and run `BINDinstall.exe` as Administrator. Select 'Tools Only'.
