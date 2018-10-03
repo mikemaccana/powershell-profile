@@ -2,7 +2,7 @@
 
 Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
 
-**If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
+**If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.** 
 
  - Implementations of keybindings and other settings that mimic bash's defaults, as well as popular Unix commands. See [bash.ps1](bash.ps1)
  - Useful commands for software development using git. See [git.ps1](git.ps1)
@@ -17,13 +17,13 @@ The details below are minimal, but the names of most commands make things fairly
 
 This is what I install on any Windows 10 box.
 
-### Powershell 6 (also called Powershell Core 6)
+### Powershell 6.1 (also called Powershell Core 6)
 
 [Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
-Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+Powershell 6.1 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
-After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
+After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
 ### For a decent, tabbed terminal
 
@@ -31,9 +31,9 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.e
 
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is currently my best recommendation for terminals. It's easily customisable and just works.
- - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature. 
- - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). 
+ - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is currently my best recommendation for terminals. It's easily customisable - Ctrl T for a new tab like a nix box is the first thing I set up - and just works.
+ - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
+ - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
 
 #### Terminal apps that don't yet work on Windows
 
