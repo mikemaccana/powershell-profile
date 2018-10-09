@@ -125,6 +125,28 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `where` (also called `where-object`) - choose items matching some criteria.
 
+## How does Powershell actually differ from bash, day-to-day?
+
+Here's a real comparison: [a bash script used to find a compromised node module a little while ago](https://twitter.com/feross/status/1017481175005257728): 
+
+	find . -type d -name "eslint-scope" -print0 | xargs -n 1 -0 -I % sh -c "(cat %/package.json | npx json version) && echo '(at %)'"
+
+Here's [a Powershell version](https://twitter.com/mikemaccana/status/1017774238344900608). This is written using Unix aliases as that's what folk are familiar with, though it's generally considered better to use the full names in your scripts:
+
+	$results = @{} 
+	ls -recurse -filter "eslint-scope" | foreach { 
+		$file = "${PSItem}\package.json" 
+		$version = cat $file | convertfrom-json | select -ExpandProperty version 
+		$results.Add($file,$version) } 
+	echo $results | format-list
+
+You might prefer one or the other, but the important difference:
+
+ - Powershell has real objects. We're creating a hashmap of `$file`,`$version` pairs.
+ - In Powershell we `select` the keys whose values we want, rather than scraping with regexs
+ - Powershell seperates content from presentation, so we can format our `$results` however we want
+ - Powershell has inbuilt tools to parse JSON (and CSV, and Excel, and other common formats). It can make them too.
+
 ## Included commands
 
 ### Stuff that should be there out of the box
