@@ -2,7 +2,7 @@
 
 # Mike's Powershell Profile: how to set up Windows console if you've been using *nix for 20 years
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
+Heya. I've been using bash for about two decades before getting into Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
 
 **If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.** 
 
@@ -34,13 +34,13 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is currently my best recommendation for terminals. It's easily customisable - Ctrl T for a new tab like a nix box is the first thing I set up - and just works.
+ - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **currently my best recommendation for terminals**. It's easily customisable - [my settings file is included](terminus-settings.yaml) - and just works.
  - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
  - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
 
 #### Terminal apps that don't yet work on Windows
 
-The apps below all plan on having WIndows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
+The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
 
  - [**Hyper**](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
 
