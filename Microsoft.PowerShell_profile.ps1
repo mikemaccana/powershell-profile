@@ -101,7 +101,7 @@ function get-serial-number {
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
 #. "$profileDir\Get-NetworkStatistics.ps1"
 
-foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
+foreach ( $includeFile in ("defaults", "openssl", "unix", "development", "node") ) {
   Unblock-File $profileDir\$includeFile.ps1
   . "$profileDir\$includeFile.ps1"
 }
