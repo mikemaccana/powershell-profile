@@ -1,4 +1,4 @@
-<img src="icons/powershell.svg" width="48px" height="48px" align="right">
+<img src="icons/powershell.svg" width="96px" height="96px" align="left">
 
 # Mike's Powershell Profile (and how to set up Windows console if you've been using *nix for 20 years)
 
