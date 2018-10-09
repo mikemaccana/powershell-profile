@@ -6,7 +6,11 @@
 $profileDir = $PSScriptRoot;
 
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
-$MaximumHistoryCount = 10000
+$MaximumHistoryCount = 10000;
+
+# Oddly, Powershell doesn't have an inbuilt variable for the documents directory. So let's make one:
+# From https://stackoverflow.com/questions/3492920/is-there-a-system-defined-environment-variable-for-documents-directory
+$env:DOCUMENTS = [Environment]::GetFolderPath("mydocuments")
 
 # PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
