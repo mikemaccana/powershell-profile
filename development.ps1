@@ -13,17 +13,17 @@ $PSDefaultParameterValues["Out-File:Encoding"]="utf8"
 # . 'C:\Users\mike\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1'
 
 function gg {
-	# Replace file:linenumber:content with file:linenumber:content
-	# so you can just click the file:linenumber and go straight there.
-	& git grep -n -i @args | foreach-object { $_ -replace '(\d+):','$1 ' }  
+  # Replace file:linenumber:content with file:linenumber:content
+  # so you can just click the file:linenumber and go straight there.
+  & git grep -n -i @args | foreach-object { $_ -replace '(\d+):', '$1 ' }  
 }
 
 function get-git-ignored {
-	git ls-files . --ignored --exclude-standard --others
+  git ls-files . --ignored --exclude-standard --others
 }
 
 function get-git-untracked {
-	git ls-files . --exclude-standard --others
+  git ls-files . --exclude-standard --others
 }
 
 # For git rebasing
@@ -34,11 +34,11 @@ $env:EDITOR = 'code --wait'
 # TODO: check out edit-file from PSCX
 # You may prefer eg 'subl' or 'code' or whatever else
 function edit {
-	& "code" -g @args
+  & "code" -g @args
 }
 
 # I used to run Sublime so occasionally my fingers type it
 function subl {
-	# 	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
-	write-output "Type 'edit' instead"
+  # 	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
+  write-output "Type 'edit' instead"
 }
