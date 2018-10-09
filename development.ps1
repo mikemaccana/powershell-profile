@@ -3,10 +3,6 @@ Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 # To use git supplied by SourceTree instead of the 'git for Windows' version
 # Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 
-# Produce UTF-8 by default
-# https://news.ycombinator.com/item?id=12991690
-$PSDefaultParameterValues["Out-File:Encoding"]="utf8"
-
 # Tab completion for git (also modified prompt, which I dislike, so disabled)
 # Install-Module posh-git
 # Load posh-git example profile

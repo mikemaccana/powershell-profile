@@ -1,22 +1,6 @@
-Import-Module PSReadLine
-
-# Truncate homedir to ~
-function limit-HomeDirectory($Path) {
-	$Path.Replace("$home", "~")
-}
 
 # Just a couple of things (sed, to interpret sed scripts) from http://unxutils.sourceforge.net/
 Add-PathVariable "${env:ProgramFiles}\UnxUtils"
-
-# Note PSReadLine uses vi keybindings by default. If you want emacs enable:
-# Set-PSReadlineOption -EditMode Emacs
-# I like vi keybindings, so I just add my favourite one from emacs
-# See https://github.com/lzybkr/PSReadLine#usage
-Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
-
-# Change how powershell does tab completion
-# http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
-Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 
 # Should really be name=value like Unix version of export but not a big deal
 function export($name, $value) {
@@ -31,6 +15,7 @@ function pgrep($name) {
 	get-process $name
 }
 
+# TODO: I really should add mtime updating to this too
 function touch($file) {
 	New-Item $file -type file
 }
@@ -41,16 +26,6 @@ function ln($target, $link) {
 }
 
 set-alias new-link ln
-
-# Must be called 'prompt' to be used by pwsh 
-# https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
-function prompt {
-	$realLASTEXITCODE = $LASTEXITCODE
-	Write-Host $(limit-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
-	Write-Host " $" -NoNewline
-	$global:LASTEXITCODE = $realLASTEXITCODE
-	Return " "
-}
 
 # http://stackoverflow.com/questions/39148304/fuser-equivalent-in-powershell/39148540#39148540
 function fuser($relativeFile){
