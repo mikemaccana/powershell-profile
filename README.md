@@ -20,9 +20,9 @@ The details below are minimal, but the names of most commands make things fairly
 
 This is what I install on any Windows 10 box.
 
-### Powershell 6.1 (also called Powershell Core 6)
+### Powershell Core 6.1 (also called Powershell Core 6)
 
-[Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
+[Powershell Core 6.1](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
 Powershell 6.1 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
