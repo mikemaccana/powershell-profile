@@ -75,20 +75,6 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
   $Child.FullName.StartsWith($Parent.FullName)
 }
 
-Set-Alias trash Remove-ItemSafely
-
-function open($file) {
-  invoke-item $file
-}
-
-function explorer {
-  explorer.exe .
-}
-
-function settings {
-  start-process ms-setttings:
-}
-
 function stree {
   $SourceTreeFolder = get-childitem ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
   & $SourceTreeFolder/SourceTree.exe -f .
