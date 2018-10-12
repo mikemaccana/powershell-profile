@@ -4,6 +4,12 @@ hotkeys:
     - - Ctrl-T
   next-word: []
   previous-word: []
+  next-tab:
+    - - Ctrl-ArrowRight
+  previous-tab:
+    - - Ctrl-ArrowLeft
+  close-tab:
+    - - Ctrl-W
 terminal:
   shell: powershell-core
   autoOpen: true

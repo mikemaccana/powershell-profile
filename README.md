@@ -11,6 +11,7 @@ Heya. I've been using bash for about two decades before getting into Powershell.
  - Useful commands for software development using git. See [development.ps1](development.ps1)
  - Useful commands and settings for node development. See [node.ps1](node.ps1)
  - Useful commands for crypto, including converting between different crypto file types, checking if private keys and certs match, etc. See [openssl.ps1](openssl.ps1)
+ - A [config file](terminus-settings.yaml) for [Terminus](https://github.com/Eugeny/terminus), the best Windows terminal.
  
 The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 
@@ -34,7 +35,7 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **currently my best recommendation for terminals**. It's easily customisable - [my settings file is included](terminus-settings.yaml) - and just works.
+ - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
  - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
  - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
 
@@ -75,7 +76,9 @@ Run:
 
 ### To pick a color scheme / theme
 
-The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
+Terminus has it's own color schemes, just open settings and pick one (or use my config file).
+
+Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
 
 You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
