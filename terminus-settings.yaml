@@ -8,7 +8,7 @@ terminal:
   shell: powershell-core
   autoOpen: true
   copyOnSelect: true
-  ligatures: false
+  ligatures: true
   rightClick: paste
   colorScheme:
     name: Monokai Soda
@@ -24,7 +24,7 @@ terminal:
       - "#f4005f"
       - "#58d1eb"
       - "#c4c5b5"
-      - "#625e4c"
+      - "#888"
       - "#f4005f"
       - "#98e024"
       - "#e0d561"
@@ -34,6 +34,6 @@ terminal:
       - "#f6f6ef"
 appearance:
   theme: Standard
-  vibrancy: false
+  vibrancy: true
   opacity: 1
   frame: thin
