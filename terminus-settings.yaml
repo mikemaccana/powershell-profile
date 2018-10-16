@@ -2,12 +2,13 @@ ssh: {}
 hotkeys:
   new-tab:
     - - Ctrl-T
+    - - Alt-T
   next-word: []
   previous-word: []
   next-tab:
-    - - Ctrl-ArrowRight
+    - - Alt-ArrowRight
   previous-tab:
-    - - Ctrl-ArrowLeft
+    - - Alt-ArrowLeft
   close-tab:
     - - Ctrl-W
 terminal:
