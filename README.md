@@ -1,6 +1,6 @@
 <img src="icons/powershell.svg" width="96px" height="96px" align="left">
 
-# Mike's Powershell Profile: how to set up a terminal in Windows if you've been using *nix for 20 years
+# Mike's Powershell profile: how to set up a terminal in Windows if you've been using *nix for 20 years
 
 Heya. I've been using bash for about two decades before getting into Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
 
