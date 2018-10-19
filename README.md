@@ -1,6 +1,6 @@
 <img src="icons/powershell.svg" width="96px" height="96px" align="left">
 
-# Mike's Powershell Profile: how to set up Windows console if you've been using *nix for 20 years
+# Mike's Powershell profile: how to set up a terminal in Windows if you've been using *nix for 20 years
 
 Heya. I've been using bash for about two decades before getting into Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
 
@@ -162,8 +162,6 @@ You might prefer one or the other, but the important difference:
 
 `explorer` - file explorer
 
-`sourcetree` - SourceTree
-
 ### File management
 
 `expand-archive` - also called `unzip`
@@ -178,7 +176,9 @@ You might prefer one or the other, but the important difference:
 
 `get-windows-build` 
 
-`disable-windows-search` - Windows Search Indexer kills interactive IO and hasn't been fixed for 15 years. 
+`disable-windows-search` - Windows Search Indexer doesn't handle filesystems with lots of small files - the 'Windows Search Indexer' process will kick in when you're working, and make interactive so slow you'll be waiting for your keyboard strokes to appear on screen. I've [discussed this with Rich Tuner from Microsoft](https://twitter.com/felixfbecker/status/1047745804444815360) who says the search team are working on fixing this, but right now I suggest you disable the indexer. 
+
+You can still search for files without the Indexer, it'll just not using the indexes, so take a little longer. You can also just use `find-file` included here.
 
 `get-serial-number`
 
@@ -242,6 +242,8 @@ You might prefer one or the other, but the important difference:
 `gg` - A `git grep` Alias
 
 `yarn` - Yarn wrapper with `yarn ls` re-added, since I hate typing `yarn list`
+
+`sourcetree` - SourceTree
 
 ### Crypto
 
