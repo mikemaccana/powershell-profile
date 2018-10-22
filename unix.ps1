@@ -15,9 +15,13 @@ function pgrep($name) {
 	get-process $name
 }
 
-# TODO: I really should add mtime updating to this too
+# Like Unix touch, creates new files and updates time on old ones
 function touch($file) {
-	New-Item $file -type file
+	if ( Test-Path $file ) {
+		Set-FileTime $file
+	} else {
+		New-Item $file -type file
+	}
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
