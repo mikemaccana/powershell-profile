@@ -18,6 +18,9 @@ function explorer {
   explorer.exe .
 }
 
+function edge {
+  start microsoft-edge:
+}
 function settings {
   start-process ms-setttings:
 }
