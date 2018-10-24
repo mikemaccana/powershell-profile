@@ -2,6 +2,9 @@
 # Just a couple of things (sed, to interpret sed scripts) from http://unxutils.sourceforge.net/
 Add-PathVariable "${env:ProgramFiles}\UnxUtils"
 
+# For dig, host, etc.
+Add-PathVariable "${env:ProgramFiles}\ISC BIND 9\bin"
+
 # Should really be name=value like Unix version of export but not a big deal
 function export($name, $value) {
 	set-item -force -path "env:$name" -value $value;
