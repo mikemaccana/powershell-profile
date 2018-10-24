@@ -92,6 +92,10 @@ Run:
 
 OpenSSH now comes with Windows. **Settings** -> **Manage Optional Features** -> **OpenSSH client**. 
 
+### For a nice prompt
+
+By default `$prompt` is a minimal, bash-style prompt with a truncated path. If you're feeling fancier, you can install [oh-my-posh](https://github.com/JanDeDobbeleer/oh-my-posh).
+
 ### For OpenSSL (if you need it)
 
 Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and other TLS/PKI work. Unless you do the same you probably don't need OpenSSL. 
