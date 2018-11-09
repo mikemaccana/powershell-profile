@@ -1,4 +1,5 @@
-Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
+Add-PathVariable "${env:ProgramFiles}\OpenSSL"
+
 
 # Various bits for openssl
 # $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
