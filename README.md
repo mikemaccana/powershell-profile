@@ -76,7 +76,7 @@ Run:
 
 ### To pick a color scheme / theme
 
-Terminus has it's own color schemes, just open settings and pick one (or use my config file).
+Terminus has it's own color schemes, just open **Settings** > **Appearance** > **Color Scheme** and pick one (or use my config file).
 
 Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
 
