@@ -30,7 +30,7 @@ function settings {
 $env:DOCUMENTS = [Environment]::GetFolderPath("mydocuments")
 
 # PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
-New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
+# New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 
 
 # Note PSReadLine uses vi keybindings by default. Bash uses emacs keybindings

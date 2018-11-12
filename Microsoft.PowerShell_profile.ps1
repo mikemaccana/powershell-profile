@@ -88,7 +88,7 @@ function get-serial-number {
 #. "$profileDir\Get-NetworkStatistics.ps1"
 
 foreach ( $includeFile in ("defaults", "openssl", "unix", "development", "node") ) {
-  Unblock-File $profileDir\$includeFile.ps1
+  # Unblock-File $profileDir\$includeFile.ps1
   . "$profileDir\$includeFile.ps1"
 }
 

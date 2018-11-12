@@ -1,10 +1,12 @@
-Add-PathVariable "${env:ProgramFiles}\nodejs"
+#Add-PathVariable "${env:ProgramFiles}\nodejs"
+$env:PATH+=':/usr/local/bin'
 
 # Add relative node_modules\.bin to PATH - this allows us to easily use local bin files and less things installed globally
-Add-PathVariable '.\node_modules\.bin'
+#Add-PathVariable '.\node_modules\.bin'
+$env:PATH+=':./node_module/bin'
 
 # Use git included with SourceTree
-Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
+#Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 
 # yarn bin folder
 # Disabled until https://github.com/yarnpkg/yarn/issues/6318 is fixed
@@ -12,13 +14,14 @@ Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 #Add-PathVariable "${env:LOCALAPPDATA}\yarn\bin"
 
 # npm global bin folder
-Add-PathVariable ${env:APPDATA}\npm
+#Add-PathVariable ${env:APPDATA}\npm
 
 # Python is used to install binary node modules
-Add-PathVariable $HOME\.windows-build-tools\python27
+#Add-PathVariable $HOME\.windows-build-tools\python27
 
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
+#Remove-Alias touch
 
 # We use a locally installed mocha rather than a global one
 # Scope private do we don't call mocha recursively (just in case there is one in path)

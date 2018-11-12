@@ -1,9 +1,9 @@
 
 # Just a couple of things (sed, to interpret sed scripts) from http://unxutils.sourceforge.net/
-Add-PathVariable "${env:ProgramFiles}\UnxUtils"
+#Add-PathVariable "${env:ProgramFiles}\UnxUtils"
 
 # For dig, host, etc.
-Add-PathVariable "${env:ProgramFiles}\ISC BIND 9\bin"
+#Add-PathVariable "${env:ProgramFiles}\ISC BIND 9\bin"
 
 # Should really be name=value like Unix version of export but not a big deal
 function export($name, $value) {
@@ -20,7 +20,7 @@ function pgrep($name) {
 
 # Like Unix touch, creates new files and updates time on old ones
 # PSCX has a touch, but it doesn't make empty files
-Remove-Alias touch
+# Remove-Alias touch
 function touch($file) {
 	if ( Test-Path $file ) {
 		Set-FileTime $file
@@ -30,9 +30,9 @@ function touch($file) {
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
-function ln($target, $link) {
-	New-Item -ItemType SymbolicLink -Path $link -Value $target
-}
+# function ln($target, $link) {
+#	New-Item -ItemType SymbolicLink -Path $link -Value $target
+#}
 
 set-alias new-link ln
 
@@ -50,8 +50,8 @@ function fuser($relativeFile){
 }
 
 # https://gallery.technet.microsoft.com/WHOIS-PowerShell-Function-ed69fde6
-Unblock-File $PSScriptRoot\whois.ps1
-. $PSScriptRoot\whois.ps1
+# Unblock-File $PSScriptRoot\whois.ps1
+# . $PSScriptRoot\whois.ps1
 
 function uptime {
 	Get-CimInstance Win32_OperatingSystem | select-object csname, @{LABEL='LastBootUpTime';
