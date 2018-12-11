@@ -154,6 +154,10 @@ You might prefer one or the other, but the important difference:
  - Powershell seperates content from presentation, so we can format our `$results` however we want
  - Powershell has inbuilt tools to parse JSON (and CSV, and Excel, and other common formats). It can make them too.
 
+### Why NTFS is slow
+
+NTFS is undoubtable slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up.
+
 ## Included commands
 
 ### Stuff that should be there out of the box
