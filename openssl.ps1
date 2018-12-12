@@ -1,7 +1,7 @@
 Add-PathVariable "${env:ProgramFiles}\OpenSSL\bin"
 
 # Various bits for openssl
-# $env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
+$env:OPENSSL_CONF = "${env:ProgramFiles}\OpenSSL\openssl.cnf"
 # $env:RANDFILE="${env:LOCALAPPDATA}\openssl.rnd"
 
 # From https://certsimple.com/blog/openssl-shortcuts
