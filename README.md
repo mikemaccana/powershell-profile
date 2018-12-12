@@ -76,7 +76,7 @@ Run:
 
 ### To pick a color scheme / theme
 
-Terminus has it's own color schemes, just open settings and pick one (or use my config file).
+Terminus has it's own color schemes, just open **Settings** > **Appearance** > **Color Scheme** and pick one (or use my config file).
 
 Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
 
@@ -153,6 +153,10 @@ You might prefer one or the other, but the important difference:
  - In Powershell we `select` the keys whose values we want, rather than scraping with regexs
  - Powershell seperates content from presentation, so we can format our `$results` however we want
  - Powershell has inbuilt tools to parse JSON (and CSV, and Excel, and other common formats). It can make them too.
+
+### Why NTFS is slow
+
+NTFS is undoubtable slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up.
 
 ## Included commands
 

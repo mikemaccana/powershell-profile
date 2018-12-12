@@ -1,4 +1,8 @@
+# RethinkDB and Pythoin (needed for the Python rehinkdb dump tool)
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
+Add-PathVariable "${env:ProgramFiles}\Python"
+# pip is in the scripts dir
+Add-PathVariable "${env:ProgramFiles}\Python\Scripts"
 
 # git
 Add-PathVariable "${env:ProgramFiles}/git/bin"
