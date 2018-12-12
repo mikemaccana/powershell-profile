@@ -8,9 +8,6 @@ Add-PathVariable "${env:ProgramFiles}\PowerShell\6-preview"
 
 $profileDir = $PSScriptRoot;
 
-# PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
-New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
-
 # From https://serverfault.com/questions/95431/in-a-powershell-script-how-can-i-check-if-im-running-with-administrator-privil#97599
 function Test-Administrator  {  
 	$user = [Security.Principal.WindowsIdentity]::GetCurrent();
@@ -81,8 +78,6 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
 	$Child.FullName.StartsWith($Parent.FullName)
 }
 
-Set-Alias trash Remove-ItemSafely
-
 function stree {
 	$SourceTreeFolder =  get-childitem ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
 	& $SourceTreeFolder/SourceTree.exe -f .
@@ -101,8 +96,6 @@ foreach ( $includeFile in ("defaults", "openssl", "unix", "development", "node")
 . "$profileDir\$includeFile.ps1"
 }
 
-$documentsFolder = [Environment]::GetFolderPath("MyDocuments")
-
-set-location $documentsFolder
+set-location $env:DOCUMENTS
 
 write-output 'Mike profile loaded.'

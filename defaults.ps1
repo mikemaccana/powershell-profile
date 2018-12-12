@@ -32,19 +32,6 @@ $env:DOCUMENTS = [Environment]::GetFolderPath("mydocuments")
 # PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 
-
-# Note PSReadLine uses vi keybindings by default. Bash uses emacs keybindings
-# (yes really, bash uses emacs keybindings by default, 'set -o vi' vs 'set -o emacs')
-# If you want emacs enable:
-# Set-PSReadlineOption -EditMode Emacs
-# I like vi keybindings, so I just add my favourite one from emacs
-# See https://github.com/lzybkr/PSReadLine#usage
-Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
-
-# Change how powershell does tab completion
-# http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
-Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
-
 # Truncate homedir to ~
 function limit-HomeDirectory($Path) {
   $Path.Replace("$home", "~")
