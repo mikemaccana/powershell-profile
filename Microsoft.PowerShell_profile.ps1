@@ -104,8 +104,9 @@ function get-serial-number {
   Get-CimInstance -ClassName Win32_Bios | select-object serialnumber
 }
 
-# https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
-#. "$profileDir\Get-NetworkStatistics.ps1"
+function get-process-for-port($port) {
+	Get-Process -Id (Get-NetTCPConnection -LocalPort $port).OwningProcess
+}
 
 foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
 	Unblock-File $profileDir\$includeFile.ps1
