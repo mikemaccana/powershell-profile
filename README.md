@@ -21,38 +21,38 @@ The details below are minimal, but the names of most commands make things fairly
 
 This is what I install on any Windows 10 box.
 
-### Powershell 6 (also called Powershell Core 6)
+### Powershell Core 6.1 (also called Powershell Core 6)
 
-[Powershell Core 6](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
+[Powershell Core 6.1](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
-Powershell 6 includes PSReadline, whuch provides, history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+Powershell 6.1 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
-After install, make a shortcut to `"C:\Program Files\PowerShell\6-preview\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
+After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
 ### For a decent, tabbed terminal
 
-Future builds of Windows will have Sets - which provides a tabbed terminal out of the box when you start Powershell Core 6 (and probably other apps but I don't care). 
+#### Tabbed terminals that work now
 
-<img src="misc/windows-console.png"/>
+<img src="misc/terminus.png"/>
 
-In the meantime you can use [Groupy](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) to do the same thing as Sets. This is currently my recommendation for a terminal on Windows - Microsoft's terminal (with groupy) works the best with the fewest bugs.
-
-<img src="misc/windows-console-groupy.png"/>
-
-Otherwise [ConEmu](https://conemu.github.io/) is your best bet (it has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support). [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed.
+ - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
+ - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
+ - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
 
 #### Terminal apps that don't yet work on Windows
 
-The apps below all plan on having WIndows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
+The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
 
-[Hyper](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
+ - [**Hyper**](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
 
-[Upterm](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
+ - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
 
-[Terminus](https://eugeny.github.io/terminus/) [can't start Powershell 6 yet](https://github.com/Eugeny/terminus/issues/291)
+ - [**Alacritty**](https://github.com/jwilm/alacritty) [is in the early stages of Windows support](https://github.com/jwilm/alacritty/issues/28)
 
-[Alacritty](https://github.com/jwilm/alacritty) [is in the early stages of Windows support](https://github.com/jwilm/alacritty/issues/28)
+#### Not a terminal
+
+[cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed and some other things you don't want (like `cmd` tools).
 
 ### Trust PSGallery
 
@@ -76,7 +76,9 @@ Run:
 
 ### To pick a color scheme / theme
 
-The Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
+Terminus has it's own color schemes, just open settings and pick one (or use my config file).
+
+Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
 
 You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
@@ -101,8 +103,6 @@ Personally I use OpenSSL for viewing private keys, pubkeys, certificates, and ot
 The Windows version of OpenSSH uses Windows CryptoAPI rather than OpenSSL, so if you want to add OpenSSL, you'll have to install it.
 
 Use [this up to date, secure Windows OpenSSL build](https://indy.fulgan.com/SSL/). 
-
-The popular 'Shining Light' Windows OpenSSL is an unsigned binary downloaded over an insecure connection - I've offered to help fix this and the author has no intention of remedying the situation.
 
 ### For host, dig and other DNS tools
 
@@ -132,6 +132,28 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `where` (also called `where-object`) - choose items matching some criteria.
 
+## How does Powershell actually differ from bash, day-to-day?
+
+Here's a real comparison: [a bash script used to find a compromised node module a little while ago](https://twitter.com/feross/status/1017481175005257728): 
+
+	find . -type d -name "eslint-scope" -print0 | xargs -n 1 -0 -I % sh -c "(cat %/package.json | npx json version) && echo '(at %)'"
+
+Here's [a Powershell version](https://twitter.com/mikemaccana/status/1017774238344900608). This is written using Unix aliases as that's what folk are familiar with, though it's generally considered better to use the full names in your scripts:
+
+	$results = @{} 
+	ls -recurse -filter "eslint-scope" | foreach { 
+		$file = "${PSItem}\package.json" 
+		$version = cat $file | convertfrom-json | select -ExpandProperty version 
+		$results.Add($file,$version) } 
+	echo $results | format-list
+
+You might prefer one or the other, but the important difference:
+
+ - Powershell has real objects. We're creating a hashmap of `$file`,`$version` pairs.
+ - In Powershell we `select` the keys whose values we want, rather than scraping with regexs
+ - Powershell seperates content from presentation, so we can format our `$results` however we want
+ - Powershell has inbuilt tools to parse JSON (and CSV, and Excel, and other common formats). It can make them too.
+
 ## Included commands
 
 ### Stuff that should be there out of the box
@@ -143,8 +165,6 @@ These come with powershell. If you don't know them you're the equivalent of some
 `settings` - the Windows Settings app
 
 `explorer` - file explorer
-
-`sourcetree` - SourceTree
 
 ### File management
 
@@ -160,7 +180,9 @@ These come with powershell. If you don't know them you're the equivalent of some
 
 `get-windows-build` 
 
-`disable-windows-search` - Windows Search Indexer kills interactive IO and hasn't been fixed for 15 years. 
+`disable-windows-search` - Windows Search Indexer doesn't handle filesystems with lots of small files - the 'Windows Search Indexer' process will kick in when you're working, and make interactive so slow you'll be waiting for your keyboard strokes to appear on screen. I've [discussed this with Rich Tuner from Microsoft](https://twitter.com/felixfbecker/status/1047745804444815360) who says the search team are working on fixing this, but right now I suggest you disable the indexer. 
+
+You can still search for files without the Indexer, it'll just not using the indexes, so take a little longer. You can also just use `find-file` included here.
 
 `get-serial-number`
 
@@ -224,6 +246,8 @@ These come with powershell. If you don't know them you're the equivalent of some
 `gg` - A `git grep` Alias
 
 `yarn` - Yarn wrapper with `yarn ls` re-added, since I hate typing `yarn list`
+
+`sourcetree` - SourceTree
 
 ### Crypto
 
