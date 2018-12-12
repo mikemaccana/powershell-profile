@@ -1,13 +1,17 @@
-# Mike's Powershell Profile (and how to set up Windows console if you've been using *nix for 20 years)
+<img src="icons/powershell.svg" width="96px" height="96px" align="left">
 
-Heya. I've been using bash for about two decades before getting onto Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
+# Mike's Powershell profile: how to set up a terminal in Windows if you've been using *nix for 20 years
 
-**If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.**
+Heya. I've been using bash for about two decades before getting into Powershell. I'm a *nix person. I've worked at both Red Hat in the early days, IBM's dedicated Linux team, and a bunch of other places working with *nix as an sysadmin, SRE, Architect, and CTO. I now develop node and TypeScript while trying to make [verifying companies for EV HTTPS](https://certsimple.com/help/what-is-ev-ssl) less painful at [CertSimple](https://certsimple.com). 
 
- - Implementations of keybindings and other settings that mimic bash's defaults, as wel las popular Unix commands. See [bash.ps1](bash.ps1)
- - Useful commands for software development using git. See [git.ps1](git.ps1)
+**If you come from a Linux or Unix background, and want to use Powershell properly, this is the right place.** 
+
+ - Better defaults, like UTF-8 output, long history, better tab completion, adding missing drives for registry hives, and a nice short prompt using the '~' character. See [defaults.ps1](defaults.ps1)
+ - Implementations of popular Unix commands. See [unix.ps1](unix.ps1)
+ - Useful commands for software development using git. See [development.ps1](development.ps1)
  - Useful commands and settings for node development. See [node.ps1](node.ps1)
  - Useful commands for crypto, including converting between different crypto file types, checking if private keys and certs match, etc. See [openssl.ps1](openssl.ps1)
+ - A [config file](terminus-settings.yaml) for [Terminus](https://github.com/Eugeny/terminus), the best Windows terminal.
  
 The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the basic stuff required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 

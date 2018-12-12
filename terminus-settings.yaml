@@ -1,0 +1,46 @@
+ssh: {}
+hotkeys:
+  new-tab:
+    - - Ctrl-T
+    - - Alt-T
+  next-word: []
+  previous-word: []
+  next-tab:
+    - - Alt-ArrowRight
+  previous-tab:
+    - - Alt-ArrowLeft
+  close-tab:
+    - - Ctrl-W
+terminal:
+  shell: powershell-core
+  autoOpen: true
+  copyOnSelect: true
+  ligatures: true
+  rightClick: paste
+  colorScheme:
+    name: Monokai Soda
+    foreground: "#c4c5b5"
+    background: "#1a1a1a"
+    cursor: "#f6f7ec"
+    colors:
+      - "#1a1a1a"
+      - "#f4005f"
+      - "#98e024"
+      - "#fa8419"
+      - "#9d65ff"
+      - "#f4005f"
+      - "#58d1eb"
+      - "#c4c5b5"
+      - "#888"
+      - "#f4005f"
+      - "#98e024"
+      - "#e0d561"
+      - "#9d65ff"
+      - "#f4005f"
+      - "#58d1eb"
+      - "#f6f6ef"
+appearance:
+  theme: Standard
+  vibrancy: true
+  opacity: 1
+  frame: thin
