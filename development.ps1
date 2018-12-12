@@ -1,4 +1,4 @@
-# RethinkDB and Pythoin (needed for the Python rehinkdb dump tool)
+# RethinkDB and Python (needed for the Python rethinkdb dump tool)
 Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 Add-PathVariable "${env:ProgramFiles}\Python"
 # pip is in the scripts dir
@@ -9,9 +9,6 @@ Add-PathVariable "${env:ProgramFiles}/git/bin"
 # To use git supplied by SourceTree instead of the 'git for Windows' version
 # Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 
-# Produce UTF-8 by default
-# https://news.ycombinator.com/item?id=12991690
-$PSDefaultParameterValues["Out-File:Encoding"]="utf8"
 # vscode
 Add-PathVariable "${env:LOCALAPPDATA}\Programs\Microsoft VS Code\bin" 
 

@@ -8,9 +8,6 @@ Add-PathVariable "${env:ProgramFiles}\PowerShell\6-preview"
 
 $profileDir = $PSScriptRoot;
 
-# https://technet.microsoft.com/en-us/magazine/hh241048.aspx
-$MaximumHistoryCount = 10000
-
 # PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
 New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 
@@ -86,18 +83,6 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
 
 Set-Alias trash Remove-ItemSafely
 
-function open($file) {
-	invoke-item $file
-}
-
-function explorer {
-	explorer.exe .
-}
-
-function settings {
-	start-process ms-setttings:
-}
-
 function stree {
 	$SourceTreeFolder =  get-childitem ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
 	& $SourceTreeFolder/SourceTree.exe -f .
@@ -111,7 +96,7 @@ function get-process-for-port($port) {
 	Get-Process -Id (Get-NetTCPConnection -LocalPort $port).OwningProcess
 }
 
-foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
+foreach ( $includeFile in ("defaults", "openssl", "unix", "development", "node") ) {
 	Unblock-File $profileDir\$includeFile.ps1
 . "$profileDir\$includeFile.ps1"
 }
