@@ -3,6 +3,9 @@
 
 # Set-ExecutionPolicy unrestricted
 
+# So we can launch pwsh in subshells if we need
+Add-PathVariable "${env:ProgramFiles}\PowerShell\6-preview"
+
 $profileDir = $PSScriptRoot;
 
 # https://technet.microsoft.com/en-us/magazine/hh241048.aspx
