@@ -17,6 +17,8 @@ Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
 # Change how powershell does tab completion
 # http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
 Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
+# For dig, host, etc.
+Add-PathVariable "${env:ProgramFiles}\ISC BIND 9\bin"
 
 # Should really be name=value like Unix version of export but not a big deal
 function export($name, $value) {
