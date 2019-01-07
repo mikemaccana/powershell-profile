@@ -43,12 +43,20 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
 
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but very minimal - it lacks multiple tabs. You'll need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ 
+```yaml
+    shell:
+        program: 'C:\Program Files\PowerShell\6-preview\pwsh.exe'
+   
+    enable_experimental_conpty_backend: true
+```    
+ 
  - [**Hyper**](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
 
  - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
 
- - [**Alacritty**](https://github.com/jwilm/alacritty) [is in the early stages of Windows support](https://github.com/jwilm/alacritty/issues/28)
 
 #### Not a terminal
 
