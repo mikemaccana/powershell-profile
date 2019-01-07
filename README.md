@@ -36,7 +36,14 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 <img src="misc/terminus.png"/>
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but deliberately very minimal. For multiple tabs, you'll need to use an app like Groupy (see below). You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+ 
+#### Minimal terminals
+
+The following apps are console window only - they don't provide tabs, graphical config tools, etc. You can add  an app like [Groupy](https://www.stardock.com/products/groupy/) to them to make a tabbed terminal, but they require more setup than just using Terminus. 
+
+ - The **inbuilt Powershell 6 terminal**
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is another fast terminal emulator. You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
  
 ```yaml
     shell:
@@ -44,8 +51,6 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
    
     enable_experimental_conpty_backend: true
 ```    
- - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console or Alacritty to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
- - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
 
 #### Terminal apps that don't yet work on Windows
 
