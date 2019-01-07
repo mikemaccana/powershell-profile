@@ -36,14 +36,7 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 <img src="misc/terminus.png"/>
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
- - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
-
-#### Terminal apps that don't yet work on Windows
-
-The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
-
- - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but very minimal - it lacks multiple tabs. You'll need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but very minimal. For multiple tabs, you'll need to use anm app like Groupy (see below). You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
  
 ```yaml
     shell:
@@ -51,12 +44,17 @@ The apps below all plan on having Windows support in future, but don't yet prope
    
     enable_experimental_conpty_backend: true
 ```    
+ - [**Groupy**](https://www.stardock.com/products/groupy/) (paid, 30 day free trial) adds tabs to arbitrary Windows apps. You can combine it with the regular Powershell console or Alacritty to make a tabbed terminal, but it requires more setup than using Terminus. Future builds of Windows will have Sets, a similar feature, built in. 
+ - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+
+#### Terminal apps that don't yet work on Windows
+
+The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
  
  - [**Hyper**](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
 
  - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
-
 
 #### Not a terminal
 
