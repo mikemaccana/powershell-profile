@@ -36,7 +36,7 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 <img src="misc/terminus.png"/>
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but very minimal. For multiple tabs, you'll need to use anm app like Groupy (see below). You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is fast, but deliberately very minimal. For multiple tabs, you'll need to use an app like Groupy (see below). You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
  
 ```yaml
     shell:
