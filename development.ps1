@@ -4,6 +4,9 @@ Add-PathVariable "${env:ProgramFiles}\Python"
 # pip is in the scripts dir
 Add-PathVariable "${env:ProgramFiles}\Python\Scripts"
 
+# mongoDB
+Add-PathVariable 'C:\Program Files\MongoDB\Server\4.0\bin'
+
 # git
 Add-PathVariable "${env:ProgramFiles}/git/bin"
 # To use git supplied by SourceTree instead of the 'git for Windows' version
