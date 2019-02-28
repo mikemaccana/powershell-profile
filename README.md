@@ -56,7 +56,24 @@ The following apps are console window only - they don't provide tabs, graphical 
 
 The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
  
- - [**Hyper**](https://hyper.is/) [currently has issues with arrpow keys](https://github.com/zeit/hyper/issues/2873). 
+ - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
+ ```
+ shell: "C:\\Program Files\\PowerShell\\6-preview\\pwsh.exe",
+ ```
+ 
+ and 
+ 
+ ```
+ shellArgs: [],
+ ```
+ 
+ To work around [issues with arpow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to**Edit**, **Preferences**, find **keymaps** and add:
+
+```
+"editor:movePreviousWord": '',
+"editor:moveNextWord": '',
+ ```
+ 
 
  - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
