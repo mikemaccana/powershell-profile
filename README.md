@@ -37,6 +37,32 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
  - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+  - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
+ ```
+ shell: "C:\\Program Files\\PowerShell\\6-preview\\pwsh.exe",
+ ```
+ 
+ and 
+ 
+ ```
+ shellArgs: [],
+ ```
+ 
+ To work around [issues with arpow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to**Edit**, **Preferences**, find **keymaps**, and replace the existing entries with one below:
+
+```
+  keymaps: {
+    // Example
+    // 'window:devtools': 'cmd+alt+o',
+    "tab:new": "ctrl+t",
+    // This is a poor default, as these are used to navigate between words
+    // "tab:next": ["ctrl+right"],
+    // "tab:prev": ["ctrl+left"],
+    // Bug workaround for https://github.com/zeit/hyper/issues/2873
+    "editor:movePreviousWord": "",
+    "editor:moveNextWord": ""
+  }
+ ```
  
 #### Minimal terminals
 
@@ -55,25 +81,7 @@ The following apps are console window only - they don't provide tabs, graphical 
 #### Terminal apps that don't yet work on Windows
 
 The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
- 
- - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
- ```
- shell: "C:\\Program Files\\PowerShell\\6-preview\\pwsh.exe",
- ```
- 
- and 
- 
- ```
- shellArgs: [],
- ```
- 
- To work around [issues with arpow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to**Edit**, **Preferences**, find **keymaps** and add:
 
-```
-"editor:movePreviousWord": '',
-"editor:moveNextWord": '',
- ```
- 
 
  - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
