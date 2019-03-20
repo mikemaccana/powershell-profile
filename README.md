@@ -94,8 +94,10 @@ The apps below all plan on having Windows support in future, but don't yet prope
 
 #### Old-style Win32 apps
 
+These have the 'everything at once' UI design of older Windows operating systems.
+
  - [**ConEmu**](https://conemu.github.io/) works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
- - [**ConsoleZ**](https://github.com/cbucher/console) has install bugs and the 'everything at once' UI design. 
+ - [**ConsoleZ**](https://github.com/cbucher/console) is an updated version of the now-unmaintained Console2.
 
 ### Trust PSGallery
 
