@@ -39,7 +39,6 @@ The terminals below all support tabs, readline, right click paste, copy on selec
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Enable 'Developer mode' in Settings and use the chocolatey install method.
- - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
   - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
  ```
  shell: "C:\\Program Files\\PowerShell\\6-preview\\pwsh.exe",
@@ -92,6 +91,11 @@ The apps below all plan on having Windows support in future, but don't yet prope
 #### Not a terminal
 
 [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed and some other things you don't want (like `cmd` tools).
+
+#### Old-style Win32 apps
+
+ - [**ConEmu**](https://conemu.github.io/) works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+ - [**ConsoleZ**](https://github.com/cbucher/console) has install bugs and the 'everything at once' UI design. 
 
 ### Trust PSGallery
 
