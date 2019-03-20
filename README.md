@@ -50,7 +50,7 @@ The terminals below all support tabs, readline, right click paste, copy on selec
  shellArgs: [],
  ```
  
- To work around [issues with arpow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to**Edit**, **Preferences**, find **keymaps**, and replace the existing entries with one below:
+ To work around [issues with arrow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to click **Edit**, **Preferences**, find **keymaps**, and replace the existing entries with one below:
 
 ```
   keymaps: {
