@@ -33,10 +33,12 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 #### Tabbed terminals that work now
 
+The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator.
+
 <img src="misc/terminus.png"/>
 
  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal. Use the chocolatey install method.
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Enable 'Developer mode' in Settings and use the chocolatey install method.
  - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
   - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
  ```
@@ -70,7 +72,7 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 The following apps are console window only - they don't provide tabs, graphical config tools, etc. You can add  an app like [Groupy](https://www.stardock.com/products/groupy/) to them to make a tabbed terminal, but they require more setup than just using Terminus. 
 
  - The **inbuilt Powershell 6 terminal**
- - [**Alacritty**](https://github.com/jwilm/alacritty) is another fast terminal emulator. You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is fast. You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
  
 ```yaml
     shell:
@@ -115,7 +117,7 @@ Run:
 
 Terminus has it's own color schemes, just open **Settings** > **Appearance** > **Color Scheme** and pick one (or use my config file).
 
-Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
+Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/). I like [Monokai Soda](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Monokai%20Soda.itermcolors)
 
 You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
