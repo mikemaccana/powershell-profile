@@ -41,7 +41,7 @@ The terminals below all support tabs, readline, right click paste, copy on selec
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Enable 'Developer mode' in Settings and use the chocolatey install method.
   - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
  ```
- shell: "C:\\Program Files\\PowerShell\\6-preview\\pwsh.exe",
+ shell: "C:\\Program Files\\PowerShell\\6\\pwsh.exe",
  ```
  
  and 
@@ -57,6 +57,8 @@ The terminals below all support tabs, readline, right click paste, copy on selec
     // Example
     // 'window:devtools': 'cmd+alt+o',
     "tab:new": "ctrl+t",
+    // Also known as 'close tab'
+    "pane:close": "ctrl+w",
     // This is a poor default, as these are used to navigate between words
     // "tab:next": ["ctrl+right"],
     // "tab:prev": ["ctrl+left"],
@@ -75,7 +77,7 @@ The following apps are console window only - they don't provide tabs, graphical 
  
 ```yaml
     shell:
-        program: 'C:\Program Files\PowerShell\6-preview\pwsh.exe'
+        program: 'C:\Program Files\PowerShell\6\pwsh.exe'
    
     enable_experimental_conpty_backend: true
 ```    
