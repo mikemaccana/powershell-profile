@@ -33,12 +33,12 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 #### Tabbed terminals that work now
 
-The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator.
+The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator. I currently use **Fluent**, but have also used **Terminus** and **Hyper** regularly. 
 
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Enable 'Developer mode' in Settings and use the chocolatey install method.
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Use the chocolatey install method.
+  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
  ```
  shell: "C:\\Program Files\\PowerShell\\6\\pwsh.exe",
