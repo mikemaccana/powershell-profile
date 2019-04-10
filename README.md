@@ -21,11 +21,11 @@ The details below are minimal, but the names of most commands make things fairly
 
 This is what I install on any Windows 10 box.
 
-### Powershell Core 6.2 (also called Powershell Core 6)
+### Powershell Core 6.2
 
 [Powershell Core 6.2](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
-Powershell 6.1 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+Powershell 6.2 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
 After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
