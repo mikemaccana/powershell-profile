@@ -21,11 +21,11 @@ The details below are minimal, but the names of most commands make things fairly
 
 This is what I install on any Windows 10 box.
 
-### Powershell Core 6.1 (also called Powershell Core 6)
+### Powershell Core 6.2
 
-[Powershell Core 6.1](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
+[Powershell Core 6.2](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
-Powershell 6.1 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+Powershell 6.2 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
 
 After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
@@ -33,21 +33,51 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 #### Tabbed terminals that work now
 
+The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator. I currently use **Fluent**, but have also used **Terminus** and **Hyper** regularly. 
+
 <img src="misc/terminus.png"/>
 
- - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great, and is **by far my best recommendation for terminals**. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
- - [**ConEmu**](https://conemu.github.io/) also works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Use the chocolatey install method.
+  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
+  - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
+ ```
+ shell: "C:\\Program Files\\PowerShell\\6\\pwsh.exe",
+ ```
+ 
+ and 
+ 
+ ```
+ shellArgs: [],
+ ```
+ 
+ To work around [issues with arrow keys](https://github.com/zeit/hyper/issues/2873) you'll also need to click **Edit**, **Preferences**, find **keymaps**, and replace the existing entries with one below:
+
+```
+  keymaps: {
+    // Example
+    // 'window:devtools': 'cmd+alt+o',
+    "tab:new": "ctrl+t",
+    // Also known as 'close tab'
+    "pane:close": "ctrl+w",
+    // This is a poor default, as these are used to navigate between words
+    // "tab:next": ["ctrl+right"],
+    // "tab:prev": ["ctrl+left"],
+    // Bug workaround for https://github.com/zeit/hyper/issues/2873
+    "editor:movePreviousWord": "",
+    "editor:moveNextWord": ""
+  }
+ ```
  
 #### Minimal terminals
 
 The following apps are console window only - they don't provide tabs, graphical config tools, etc. You can add  an app like [Groupy](https://www.stardock.com/products/groupy/) to them to make a tabbed terminal, but they require more setup than just using Terminus. 
 
  - The **inbuilt Powershell 6 terminal**
- - [**Alacritty**](https://github.com/jwilm/alacritty) is another fast terminal emulator. You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
+ - [**Alacritty**](https://github.com/jwilm/alacritty) is fast. You'll also need to have the following in `AppData\Roaming\alacritty\alacritty.yml`
  
 ```yaml
     shell:
-        program: 'C:\Program Files\PowerShell\6-preview\pwsh.exe'
+        program: 'C:\Program Files\PowerShell\6\pwsh.exe'
    
     enable_experimental_conpty_backend: true
 ```    
@@ -55,8 +85,7 @@ The following apps are console window only - they don't provide tabs, graphical 
 #### Terminal apps that don't yet work on Windows
 
 The apps below all plan on having Windows support in future, but don't yet properly work at the time of writing. There are links to the tracking bugs below.
- 
- - [**Hyper**](https://hyper.is/) [currently has issues with Ctrl C for Powershell](https://github.com/zeit/hyper/issues/1121). 
+
 
  - [**Upterm**](https://github.com/railsware/upterm) [doesn't yet work on Windows](https://github.com/railsware/upterm/issues/800
 )
@@ -64,6 +93,13 @@ The apps below all plan on having Windows support in future, but don't yet prope
 #### Not a terminal
 
 [cmder](http://cmder.net/)'s website makes it seems like it's a new terminal, but cmder is just ConEmu and some additional things you may already have installed and some other things you don't want (like `cmd` tools).
+
+#### Old-style Win32 apps
+
+These have the 'everything at once' UI design of older Windows operating systems.
+
+ - [**ConEmu**](https://conemu.github.io/) works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
+ - [**ConsoleZ**](https://github.com/cbucher/console) is an updated version of the now-unmaintained Console2.
 
 ### Trust PSGallery
 
@@ -89,7 +125,7 @@ Run:
 
 Terminus has it's own color schemes, just open **Settings** > **Appearance** > **Color Scheme** and pick one (or use my config file).
 
-Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/).
+Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/). I like [Monokai Soda](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Monokai%20Soda.itermcolors)
 
 You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
@@ -165,9 +201,9 @@ You might prefer one or the other, but the important difference:
  - Powershell seperates content from presentation, so we can format our `$results` however we want
  - Powershell has inbuilt tools to parse JSON (and CSV, and Excel, and other common formats). It can make them too.
 
-### Why NTFS is slow
+### Why Windows filesystem is slow
 
-NTFS is undoubtable slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up.
+Filesystem access under Windows is undoubtably slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up.
 
 ## Included commands
 
