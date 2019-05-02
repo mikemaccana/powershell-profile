@@ -203,7 +203,7 @@ You might prefer one or the other, but the important difference:
 
 ### Why Windows filesystem is slow
 
-Filesystem access under Windows is undoubtably slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up.
+Filesystem access under Windows is undoubtably slower than ext3/4 for most tasks. See https://github.com/Microsoft/WSL/issues/873#issuecomment-425272829 for more details about why and some performance hints to speed things up. There's also [plans to improve things in future](https://twitter.com/shanselman/status/1123467067880038400).
 
 ## Included commands
 
