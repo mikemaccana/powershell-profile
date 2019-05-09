@@ -39,7 +39,7 @@ The terminals below all support tabs, readline, right click paste, copy on selec
 
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. Use the chocolatey install method.
   - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
-  - [**Hyper**](https://hyper.is/) Install [Hyper 3 Canary](https://github.com/zeit/hyper/releases). Run:
+  - [**Hyper**](https://hyper.is/) Install Hyper 3 and run:
  ```
  shell: "C:\\Program Files\\PowerShell\\6\\pwsh.exe",
  ```
@@ -67,6 +67,10 @@ The terminals below all support tabs, readline, right click paste, copy on selec
     "editor:moveNextWord": ""
   }
  ```
+ 
+#### Tabbed terminals coming soon
+
+Microsoft's official [Windows Terminal](https://github.com/Microsoft/Terminal). Does not have a stable release yet and still has some major bugs, but is fast and low overhead.
  
 #### Minimal terminals
 
