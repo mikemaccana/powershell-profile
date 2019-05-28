@@ -2,6 +2,7 @@ Add-PathVariable "${env:ProgramFiles}\rethinkdb"
 
 # To use git supplied by SourceTree instead of the 'git for Windows' version
 # Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
+Add-PathVariable "${env:ProgramFiles}\Git\bin"
 
 # Produce UTF-8 by default
 # https://news.ycombinator.com/item?id=12991690
@@ -13,7 +14,7 @@ $PSDefaultParameterValues["Out-File:Encoding"]="utf8"
 # . 'C:\Users\mike\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1'
 
 function gg {
-	# Replace file:linenumber:content with file:linenumber:content
+	# Replace 'file:linenumber:content' with 'file:linenumber content'
 	# so you can just click the file:linenumber and go straight there.
 	& git grep -n -i @args | foreach-object { $_ -replace '(\d+):','$1 ' }  
 }
