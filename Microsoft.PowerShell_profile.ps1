@@ -43,32 +43,32 @@ function disable-windows-search {
 
 # http://mohundro.com/blog/2009/03/31/quickly-extract-files-with-powershell/
 # and https://stackoverflow.com/questions/1359793/programmatically-extract-tar-gz-in-a-single-step-on-windows-with-7zip
-function expand-archive([string]$file, [string]$outputDir = '') {
-	if (-not (Test-Path $file)) {
-		$file = Resolve-Path $file
-	}
+# function expand-archive([string]$file, [string]$outputDir = '') {
+# 	if (-not (Test-Path $file)) {
+# 		$file = Resolve-Path $file
+# 	}
 
-	$baseName = get-childitem $file | select-object -ExpandProperty "BaseName"
+# 	$baseName = get-childitem $file | select-object -ExpandProperty "BaseName"
 
-	if ($outputDir -eq '') {
-		$outputDir = $baseName
-	}
+# 	if ($outputDir -eq '') {
+# 		$outputDir = $baseName
+# 	}
 
-	# Check if there's a tar inside
-	# We use the .net method as this file (x.tar) doesn't exist!
-	$secondExtension = [System.IO.Path]::GetExtension($baseName)
-	$secondBaseName = [System.IO.Path]::GetFileNameWithoutExtension($baseName)
+# 	# Check if there's a tar inside
+# 	# We use the .net method as this file (x.tar) doesn't exist!
+# 	$secondExtension = [System.IO.Path]::GetExtension($baseName)
+# 	$secondBaseName = [System.IO.Path]::GetFileNameWithoutExtension($baseName)
 
-	if ( $secondExtension -eq '.tar' ) {
-		# This is a tarball
-		$outputDir = $secondBaseName
-		write-output "Output dir will be $outputDir"		
-		7z x $file -so | 7z x -aoa -si -ttar -o"$outputDir"
-		return
-	} 
-	# Just extract the file
-	7z x "-o$outputDir" $file	
-}
+# 	if ( $secondExtension -eq '.tar' ) {
+# 		# This is a tarball
+# 		$outputDir = $secondBaseName
+# 		write-output "Output dir will be $outputDir"		
+# 		7z x $file -so | 7z x -aoa -si -ttar -o"$outputDir"
+# 		return
+# 	} 
+# 	# Just extract the file
+# 	7z x "-o$outputDir" $file	
+# }
 
 set-alias unzip expand-archive
 
@@ -107,13 +107,13 @@ function get-serial-number {
 # https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
 #. "$profileDir\Get-NetworkStatistics.ps1"
 
-foreach ( $includeFile in ("openssl", "unix", "development", "node") ) {
+foreach ( $includeFile in ("aws", "openssl", "unix", "development", "node") ) {
 	Unblock-File $profileDir\$includeFile.ps1
 . "$profileDir\$includeFile.ps1"
 }
 
-$documentsFolder = [Environment]::GetFolderPath("MyDocuments")
-
-set-location $documentsFolder
+set-location '~/Code'
 
 write-output 'Mike profile loaded.'
+
+

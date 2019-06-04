@@ -7,15 +7,16 @@ Add-PathVariable '.\node_modules\.bin'
 Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
 
 # yarn bin folder
-# Disabled until https://github.com/yarnpkg/yarn/issues/6318 is fixed
-#Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
-#Add-PathVariable "${env:LOCALAPPDATA}\yarn\bin"
+Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
 # npm global bin folder
 Add-PathVariable ${env:APPDATA}\npm
 
 # Python is used to install binary node modules
-Add-PathVariable $HOME\.windows-build-tools\python27
+# Note you can also get Python from the Windows Store Now
+# Add-PathVariable $HOME\.windows-build-tools\python27
+
+
 
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
