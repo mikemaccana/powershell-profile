@@ -3,9 +3,6 @@ Add-PathVariable "${env:ProgramFiles}\nodejs"
 # Add relative node_modules\.bin to PATH - this allows us to easily use local bin files and less things installed globally
 Add-PathVariable '.\node_modules\.bin'
 
-# git also provides tools like 'patch' which is used by snyk
-Add-PathVariable "${env:ProgramFiles}\Git\usr\bin"
-
 # yarn bin folder
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 
@@ -13,10 +10,7 @@ Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"
 Add-PathVariable ${env:APPDATA}\npm
 
 # Python is used to install binary node modules
-# Note you can also get Python from the Windows Store Now
-# Add-PathVariable $HOME\.windows-build-tools\python27
-
-
+Add-PathVariable $HOME\.windows-build-tools\python27
 
 
 # $env:NODE_PATH = "${env:APPDATA}\npm"
