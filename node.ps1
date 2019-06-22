@@ -3,8 +3,8 @@ Add-PathVariable "${env:ProgramFiles}\nodejs"
 # Add relative node_modules\.bin to PATH - this allows us to easily use local bin files and less things installed globally
 Add-PathVariable '.\node_modules\.bin'
 
-# Use git included with SourceTree
-Add-PathVariable "${env:LOCALAPPDATA}\Atlassian\SourceTree\git_local\bin"
+# git also provides tools like 'patch' which is used by snyk
+Add-PathVariable "${env:ProgramFiles}\Git\usr\bin"
 
 # yarn bin folder
 Add-PathVariable "${env:ProgramFiles(x86)}\Yarn\bin"

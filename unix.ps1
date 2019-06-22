@@ -1,9 +1,3 @@
-Import-Module PSReadLine
-
-# Truncate homedir to ~
-function limit-HomeDirectory($Path) {
-	$Path.Replace("$home", "~")
-}
 
 # Just a couple of things (sed, to interpret sed scripts) from http://unxutils.sourceforge.net/
 Add-PathVariable "${env:ProgramFiles}\UnxUtils"
@@ -18,6 +12,9 @@ Set-PSReadlineKeyHandler -Key 'Escape,_' -Function YankLastArg
 # http://stackoverflow.com/questions/39221953/can-i-make-powershell-tab-complete-show-me-all-options-rather-than-picking-a-sp
 Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 
+# For dig, host, etc.
+Add-PathVariable "${env:ProgramFiles}\ISC BIND 9\bin"
+
 # Should really be name=value like Unix version of export but not a big deal
 function export($name, $value) {
 	set-item -force -path "env:$name" -value $value;
@@ -31,8 +28,15 @@ function pgrep($name) {
 	get-process $name
 }
 
+# Like Unix touch, creates new files and updates time on old ones
+# PSCX has a touch, but it doesn't make empty files
+Remove-Alias touch
 function touch($file) {
-	New-Item $file -type file
+	if ( Test-Path $file ) {
+		Set-FileTime $file
+	} else {
+		New-Item $file -type file
+	}
 }
 
 # From https://stackoverflow.com/questions/894430/creating-hard-and-soft-links-using-powershell
@@ -41,16 +45,6 @@ function ln($target, $link) {
 }
 
 set-alias new-link ln
-
-# Must be called 'prompt' to be used by pwsh 
-# https://github.com/gummesson/kapow/blob/master/themes/bashlet.ps1
-function prompt {
-	$realLASTEXITCODE = $LASTEXITCODE
-	Write-Host $(limit-HomeDirectory("$pwd")) -ForegroundColor Yellow -NoNewline
-	Write-Host " $" -NoNewline
-	$global:LASTEXITCODE = $realLASTEXITCODE
-	Return " "
-}
 
 # http://stackoverflow.com/questions/39148304/fuser-equivalent-in-powershell/39148540#39148540
 function fuser($relativeFile){

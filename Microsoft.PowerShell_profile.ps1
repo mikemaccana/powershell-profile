@@ -3,13 +3,10 @@
 
 # Set-ExecutionPolicy unrestricted
 
+# So we can launch pwsh in subshells if we need
+Add-PathVariable "${env:ProgramFiles}\PowerShell\6-preview"
+
 $profileDir = $PSScriptRoot;
-
-# https://technet.microsoft.com/en-us/magazine/hh241048.aspx
-$MaximumHistoryCount = 10000
-
-# PS comes preset with 'HKLM' and 'HKCU' drives but is missing HKCR 
-New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 
 # From https://serverfault.com/questions/95431/in-a-powershell-script-how-can-i-check-if-im-running-with-administrator-privil#97599
 function Test-Administrator  {  
@@ -81,20 +78,6 @@ function Test-FileInSubPath([System.IO.DirectoryInfo]$Child, [System.IO.Director
 	$Child.FullName.StartsWith($Parent.FullName)
 }
 
-Set-Alias trash Remove-ItemSafely
-
-function open($file) {
-	invoke-item $file
-}
-
-function explorer {
-	explorer.exe .
-}
-
-function settings {
-	start-process ms-setttings:
-}
-
 function stree {
 	$SourceTreeFolder =  get-childitem ("${env:LOCALAPPDATA}" + "\SourceTree\app*") | Select-Object -first 1
 	& $SourceTreeFolder/SourceTree.exe -f .
@@ -104,10 +87,11 @@ function get-serial-number {
   Get-CimInstance -ClassName Win32_Bios | select-object serialnumber
 }
 
-# https://gallery.technet.microsoft.com/scriptcenter/Get-NetworkStatistics-66057d71
-#. "$profileDir\Get-NetworkStatistics.ps1"
+function get-process-for-port($port) {
+	Get-Process -Id (Get-NetTCPConnection -LocalPort $port).OwningProcess
+}
 
-foreach ( $includeFile in ("aws", "openssl", "unix", "development", "node") ) {
+foreach ( $includeFile in ("aws", "defaults", "openssl", "aws", "unix", "development", "node") ) {
 	Unblock-File $profileDir\$includeFile.ps1
 . "$profileDir\$includeFile.ps1"
 }
