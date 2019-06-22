@@ -35,9 +35,12 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator. I currently use **Fluent**, but have also used **Terminus** and **Hyper** regularly. 
 
-<img src="misc/terminus.png"/>
+<img src="misc/windows-terminal.png"/>
 
- - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires the minimum configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. **Fluent is my recommendation for the best Windows terminal**. 
+**Windows Terminal and Fluent are my recommendations for the best Windows terminal**. 
+
+ - [Microsoft's official Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) ]is in preview mode )(settings is just a JSON file, there's no GUI), and it still has some minor bugs, but is fast, provides tabs, copy on select, and the usual features, and works as a daily driver. 
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires the minimum configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
   - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
  ```
@@ -67,10 +70,6 @@ The terminals below all support tabs, readline, right click paste, copy on selec
     "editor:moveNextWord": ""
   }
  ```
- 
-#### Tabbed terminals coming soon
-
-Microsoft's official [Windows Terminal](https://github.com/Microsoft/Terminal). Does not have a stable release yet and still has some major bugs (copy on select doesn't work), but is fast and low overhead.
  
 #### Minimal terminals
 
@@ -173,7 +172,7 @@ Start [Powershell 5](https://github.com/felixrieseberg/windows-build-tools/issue
 
 ## Minimum Powershell concepts to learn before you rant about how much you hate Powershell
 
-These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about how "Unix is like DOS". Might be painful to hear but it's true. 
+These come with powershell. If you don't know them you're the equivalent of someone who doesn't know `grep` ranting about how "Unix is like DOS". That might be painful to hear but it's true. 
 
 `select` (also called `select-object`) - select the fields you want on an object
 
@@ -182,6 +181,8 @@ These come with powershell. If you don't know them you're the equivalent of some
 `get-itemproperty` - show the properties of registry objects (`ls` only shows children)
 
 `where` (also called `where-object`) - choose items matching some criteria.
+
+`get-help some-command -examples` - every command has examples.
 
 ## How does Powershell actually differ from bash, day-to-day?
 
