@@ -38,7 +38,7 @@ The terminals below all support tabs, readline, right click paste, copy on selec
 <img src="misc/windows-terminal.png"/>
 
  - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, there's still some minor bugs), but is fast, provides tabs, copy on select, normal line editing shortcuts work, and everythign else - it definitely works as a daily driver. 
- - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires the minimum configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires minimal configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
   - [**Terminus**](https://eugeny.github.io/terminus/) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
  ```
