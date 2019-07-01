@@ -11,7 +11,7 @@ Heya. I've been using bash for about two decades before getting into Powershell.
  - Useful commands for software development using git. See [development.ps1](development.ps1)
  - Useful commands and settings for node development. See [node.ps1](node.ps1)
  - Useful commands for crypto, including converting between different crypto file types, checking if private keys and certs match, etc. See [openssl.ps1](openssl.ps1)
- - A [config file](terminus-settings.yaml) for [Terminus](https://github.com/Eugeny/terminus), the best Windows terminal.
+ - Config files for [Windows Terminal](profiles.json), [Terminus](terminus-settings.yaml), and other modern Windows terminals.
  
 The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the things required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 
@@ -25,7 +25,7 @@ This is what I install on any Windows 10 box.
 
 [Powershell Core 6.2](https://docs.microsoft.com/en-gb/powershell/scripting/setup/Installing-PowerShell-Core-on-Windows?view=powershell-6) has a number of useful bits, but the main thing is it starts way faster than Powershell 5, so there's less lag when you open a new tab.
 
-Powershell 6.2 includes PSReadline, which provides history with up/down arrows, other useful vi/emacs keybindings you'll know from bash.
+Powershell 6.2 includes PSReadline, which provides history with up/down arrows, ctrl left and right to move between words, and other useful keybindings you'll know from bash.
 
 After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
 
@@ -33,13 +33,18 @@ After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nol
 
 #### Tabbed terminals that work now
 
-The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator. I currently use **Windows Terminal** (which in in alpha right now) but have also used **Fluent** which is a little older and more polished.
+The terminals below all support tabs, readline, right click paste, copy on select, and all the usual things you expect from any decent terminal emulator. I currently use **Windows Terminal** (which in in alpha right now) but have also used **Fluent Terminal** which is a little older and more polished.
 
 <img src="misc/windows-terminal.png"/>
 
- - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, there's still some minor bugs), but is fast, provides tabs, copy on select, normal line editing shortcuts work, and everythign else - it definitely works as a daily driver. 
- - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires the minimum configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
-  - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
+ - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, copy on select doesn't work - you need to right click after selecting) but it definitely works as a daily driver. 
+ 
+```powershell
+cp profiles.json $env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*\RoamingState\profiles.json
+```
+
+ - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires minimal configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
+  - [**Terminus**](https://eugeny.github.io/terminus/) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
  ```
  shell: "C:\\Program Files\\PowerShell\\6\\pwsh.exe",
