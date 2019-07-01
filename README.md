@@ -37,7 +37,8 @@ The terminals below all support tabs, readline, right click paste, copy on selec
 
 <img src="misc/windows-terminal.png"/>
 
- - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, there's still has some minor bugs), but is fast, provides tabs, copy on select, normal line editing shortcuts work, and everythign else - it definitely works as a daily driver. 
+ - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, there's still has some minor bugs), but is fast, provides tabs, copy on select, normal line editing shortcuts work, and everythign else - it definitely works as a daily driver. A profile is included - `cp profiles.json Packages\Microsoft.WindowsTerminal_*\RoamingState\profiles.json`. It includes a dark Fluent theme, the Monokai Soda theme, and 
+
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires the minimum configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
   - [**Terminus**](https://eugeny.github.io/terminus/) (pictured above) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
@@ -124,13 +125,11 @@ Run:
 
 ### To pick a color scheme / theme
 
+Browse [iterm2colorschemes.com](https://iterm2colorschemes.com/) and download the equivalent named Windows Terminal file from [their Windows Terminal color schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/windowsterminal). Open **Settings** and paste it into the `schemes` section, then select that scheme name for the profile you want to use it with in `profiles`.
+
 Terminus has it's own color schemes, just open **Settings** > **Appearance** > **Color Scheme** and pick one (or use my config file).
 
-Otherwise, the Windows console supports the well know `.itermcolors` format. You can view hundreds of popular themes at [iterm2colorschemes.com](https://iterm2colorschemes.com/). I like [Monokai Soda](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Monokai%20Soda.itermcolors)
-
-You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
-
-[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) applies the `.itermcolors` file - it determines coloring for powershell, bash, and cmd. [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool).
+[ColorTool](https://blogs.msdn.microsoft.com/commandline/2017/08/11/introducing-the-windows-console-colortool/) also supports importing the well know `.itermcolors` format. [Download ColorTool from Microsoft's GitHub](https://github.com/Microsoft/console/tree/master/tools/ColorTool). You can edit an `.itermcolors` file using [terminal.sexy](https://terminal.sexy). 
 
 Run:
 
