@@ -11,7 +11,7 @@ Heya. I've been using bash for about two decades before getting into Powershell.
  - Useful commands for software development using git. See [development.ps1](development.ps1)
  - Useful commands and settings for node development. See [node.ps1](node.ps1)
  - Useful commands for crypto, including converting between different crypto file types, checking if private keys and certs match, etc. See [openssl.ps1](openssl.ps1)
- - A [config file](profiles.json) for [Windows Terminal](https://github.com/Microsoft/Terminal) and a [config file](terminus-settings.yaml) for [Terminus](https://github.com/Eugeny/terminus), the best Windows terminal.
+ - Config files for [Windows Terminal](profiles.json), [Terminus](terminus-settings.yaml), and other modern Windows terminals.
  
 The profile code itself contains useful implementations of common patterns - eg, installing packages, reading the registry, interacting with files and processes. **Learning the things required to make a profile you're happy with is a great way to get comfortable with Powershell.** 
 
