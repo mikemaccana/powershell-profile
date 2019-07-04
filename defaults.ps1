@@ -19,7 +19,11 @@ function explorer {
 }
 
 function edge {
-  start microsoft-edge:
+  # Old Edge
+  # start microsoft-edge:
+  #
+  # New Chromioum Edge
+  & "${env:ProgramFiles(x86)}\Microsoft\Edge Dev\Application\msedge.exe"
 }
 function settings {
   start-process ms-setttings:
