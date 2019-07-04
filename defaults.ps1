@@ -47,6 +47,12 @@ function prompt {
   Return " "
 }
 
+# Make $lastObject save the last object output
+# From http://get-powershell.com/post/2008/06/25/Stuffing-the-output-of-the-last-command-into-an-automatic-variable.aspx
+function out-default {
+  $input | Tee-Object -var global:lastobject | Microsoft.PowerShell.Core\out-default
+}
+
 # If you prefer oh-my-posh
 # Import-Module posh-git
 # Import-Module oh-my-posh
