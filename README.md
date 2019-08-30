@@ -40,16 +40,11 @@ The terminals below all support:
  - Right click paste
  - Copy on select
  
-....and all the usual things you expect from any decent terminal emulator. I use **Windows Terminal**, which is in alpha right now, with a few workarounds for bugs. If you just want an awesome working terminal though, **Fluent Terminal** is a little older and works great out of the box.
+....and all the usual things you expect from any decent terminal emulator. I use **Windows Terminal**, which is in alpha right now, but usableas a day to day termina;. **Fluent Terminal** also works great out of the box.
 
 <img src="misc/windows-terminal.png"/>
 
- - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701) is in preview mode (settings is just a JSON file, copy on select doesn't work) but it's otherwise OK as a daily driver. 
- 
-```powershell
-cp profiles.json $env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*\RoamingState\profiles.json
-```
-
+ - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701). Enable `copyOnSelect` in the settings file. 
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires minimal configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
   - [**Terminus**](https://eugeny.github.io/terminus/) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
