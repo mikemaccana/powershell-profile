@@ -38,7 +38,7 @@ The terminals below all support:
  - Right click paste
  - Copy on select
  
-....and all the usual things you expect from any decent terminal emulator. I use **Windows Terminal**, which is in alpha right now, but usableas a day to day termina;. **Fluent Terminal** also works great out of the box.
+....and all the usual things you expect from any decent terminal emulator. I use **Windows Terminal**, which is in Preview right now, but usable as a day to day terminal. **Fluent Terminal** also works great out of the box.
 
 <img src="misc/windows-terminal.png"/>
 
