@@ -27,8 +27,6 @@ This is what I install on any Windows 10 box.
 
 Powershell 6.2 includes PSReadline, which provides history with up/down arrows, ctrl left and right to move between words, and other useful keybindings you'll know from bash.
 
-After install, make a shortcut to `"C:\Program Files\PowerShell\6\pwsh.exe" -nologo` and pin that to your taskbar. The `-nologo` makes Powershell skip some boring startup messages.
-
 ### For a decent, tabbed terminal
 
 #### Tabbed terminals that work now
@@ -44,7 +42,7 @@ The terminals below all support:
 
 <img src="misc/windows-terminal.png"/>
 
- - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701). Enable `copyOnSelect` in the settings file. 
+ - [**Microsoft's official Windows Terminal**](https://www.microsoft.com/en-us/p/windows-terminal-preview/9n0dx20hk701). Open the Settings file, enable `copyOnSelect` and change `"commandline": "C:\\Program Files\\PowerShell\\6\\pwsh.exe -nologo",` - the `nologo` makes Powershell skip some boring startup messages.
  - [**FluentTerminal**](https://github.com/felixse/FluentTerminal) is a native Windows 10 terminal that feels as if Microsoft had written it. It requires minimal configuration (just to add Powershell 6 to the profiles), has all the features you'd expect, and is fast. 
   - [**Terminus**](https://eugeny.github.io/terminus/) works great. Tweaking colors, keyboard shortcuts etc is easy via the menus, and [my settings file is included](terminus-settings.yaml) if you just want my config. 
   - [**Hyper**](https://hyper.is/) Install Hyper 3 and modify the config to set:
