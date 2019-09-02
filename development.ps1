@@ -52,8 +52,13 @@ function edit {
 	& "code" -g @args
 }
 
+function fork {
+	& ${env:LOCALAPPDATA}\Fork\Fork.exe
+}
+
 # I used to run Sublime so occasionally my fingers type it
 function subl {
 	# 	& "$env:ProgramFiles\Sublime Text 3\subl.exe" @args
 	write-output "Type 'edit' instead"
 }
+
