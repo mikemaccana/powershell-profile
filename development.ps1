@@ -53,7 +53,9 @@ function edit {
 }
 
 function fork {
-	& ${env:LOCALAPPDATA}\Fork\Fork.exe
+	# Fork requires an absolute path https://github.com/ForkIssues/TrackerWin/issues/416#issuecomment-527067604
+	$absolutePath = resolve-path .
+	& ${env:LOCALAPPDATA}\Fork\Fork.exe $absolutePath
 }
 
 # I used to run Sublime so occasionally my fingers type it
