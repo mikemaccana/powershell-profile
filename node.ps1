@@ -22,19 +22,19 @@ function Private:mocha() {
 }
 
 # Scope private do we don't call yarn recursively!
-function Private:yarn() {
-	$modifiedArgs = @()
-	foreach ( $arg in $args ) {
-		# yarn broke 'ls'
-		if ( $arg -cmatch '^ls' ) {
-			$arg = 'list'
-		}
-		$modifiedArgs += $arg
-		# we're using a monorepo, and only add packages to
-		# our workspace if we write them ourselves
-		if ( $arg -cmatch 'add' ) {
-			$modifiedArgs += '--ignore-workspace-root-check'
-		}
-	}
-	& yarn $modifiedArgs
-}
+# function Private:yarn() {
+# 	$modifiedArgs = @()
+# 	foreach ( $arg in $args ) {
+# 		# yarn broke 'ls'
+# 		if ( $arg -cmatch '^ls' ) {
+# 			$arg = 'list'
+# 		}
+# 		$modifiedArgs += $arg
+# 		# we're using a monorepo, and only add packages to
+# 		# our workspace if we write them ourselves
+# 		if ( $arg -cmatch 'add' ) {
+# 			$modifiedArgs += '--ignore-workspace-root-check'
+# 		}
+# 	}
+# 	& yarn $modifiedArgs
+# }

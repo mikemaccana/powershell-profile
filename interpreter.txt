@@ -1,0 +1,11 @@
+cd HKCR:
+
+    Start the registry editor (regedit.exe)
+    Move to HKEY_CLASSES_ROOT
+    From the Edit menu select New - Key
+    Enter a name of '.' and press Enter (don't type the quotes)
+    Select the new '.' key
+    Double click the (Default) value
+    Change to the HKEY_CLASSES_ROOT used to open, e.g. NOTEPAD for the notepad.exe application
+    NOTEPAD
+    Click OK
