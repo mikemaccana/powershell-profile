@@ -178,7 +178,7 @@ function pstree {
 
 function find-file($name) {
 	get-childitem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | foreach-object {
-		write-output = $PSItem.FullName
+		write-output($PSItem.FullName)
 	}
 }
 
