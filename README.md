@@ -27,6 +27,26 @@ This is what I install on any Windows 10 box.
 
 Powershell 6.2 includes PSReadline, which provides history with up/down arrows, ctrl left and right to move between words, and other useful keybindings you'll know from bash.
 
+### Trust PSGallery
+
+To allow you to install items without further prompts:
+
+	Set-PSRepository -name PSGallery -InstallationPolicy Trusted
+
+### For `less`, `Add-PAthVariable` and a bunch of other useful commands that should be there out of the box
+
+Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
+
+	Install-Module Pscx -Scope CurrentUser
+	
+AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)	
+
+### For 'Remove-ItemSafely' - ie, trashing files from the command line
+
+Run:
+
+	Install-Module -Name Recycle -Scope CurrentUser
+
 ### For a decent, tabbed terminal
 
 #### Tabbed terminals that work now
@@ -107,25 +127,7 @@ These have the 'everything at once' UI design of older Windows operating systems
  - [**ConEmu**](https://conemu.github.io/) works, but has some contrast issues which make it hard to see the open tab, and is hampered by its author's desire for Windows XP support. 
  - [**ConsoleZ**](https://github.com/cbucher/console) is an updated version of the now-unmaintained Console2.
 
-### Trust PSGallery
 
-To allow you to install items without further prompts:
-
-	Set-PSRepository -name PSGallery -InstallationPolicy Trusted
-
-### For 'less' and a bunch of other useful stuff
-
-Get the [Powershell Community Extensions](https://github.com/Pscx/Pscx). Run:
-
-	Install-Module Pscx -Scope CurrentUser
-	
-AllowClobber is needed due to [this bug](https://github.com/Pscx/Pscx/issues/15)	
-
-### For 'Remove-ItemSafely' - ie, trashing files from the command line
-
-Run:
-
-	Install-Module -Name Recycle -Scope CurrentUser
 
 ### To pick a color scheme / theme
 
